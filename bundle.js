@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	document.write("Webpack for the win!");
+	/** @jsx React.DOM */document.write("Webpack for the win!");
 
 /***/ }
 /******/ ]);
