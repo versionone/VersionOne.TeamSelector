@@ -6,4 +6,4 @@ var React = require('react')
 var ReactDOM = require('react-dom')
 var TeamCard = require('./TeamCard.jsx')
 
-ReactDOM.render(<TeamCard />, document.getElementById("content"));
+ReactDOM.render(<TeamCard teamName='imua'/>, document.getElementById("content"));
