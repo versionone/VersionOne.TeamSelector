@@ -4,6 +4,6 @@
 
 var React = require('react')
 var ReactDOM = require('react-dom')
-var TeamCardList = require('./TeamCardList.jsx')
+var TeamDisplay = require('./TeamDisplay.jsx')
 
-ReactDOM.render(<TeamCardList />, document.getElementById("content"));
+ReactDOM.render(<TeamDisplay />, document.getElementById("content"));
