@@ -7,12 +7,12 @@ var React = require('react')
 var TeamCard = React.createClass({
 
     propTypes: {
-        teamName: React.PropTypes.string.isRequired
+        children: React.PropTypes.string.isRequired
     },
 
     render: function() {
         return (
-            <div className="teamCard">{this.props.teamName}</div>
+            <div className="teamCard">{this.props.children}</div>
         );
     }
 });
