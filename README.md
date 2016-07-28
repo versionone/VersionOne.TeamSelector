@@ -1,6 +1,7 @@
 Links for helpful tutorials 
 
 React: https://facebook.github.io/react/docs/package-management.html
+React JSX: https://facebook.github.io/react/docs/jsx-in-depth.html
 Webpack: https://web-design-weekly.com/2014/09/24/diving-webpack/
 Webpack Help: http://stackoverflow.com/questions/33502987/webpack-bundle-js-not-found
 BabelRc: https://babeljs.io/docs/usage/babelrc/
