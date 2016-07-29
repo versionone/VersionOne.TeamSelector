@@ -7,6 +7,10 @@ class AddTeamCardButton extends React.Component {
     }
     handleClick() {
         console.log("Click fired");
+        /*console.log("AddTeamCardButton was clicked");
+        var nextRank = teamData.length + 1;
+        var newName = "New Team " + nextRank;
+        this.setState({teamData: {"teamName":newName, "rank":nextRank}});*/
     }
     render() {
         return (
