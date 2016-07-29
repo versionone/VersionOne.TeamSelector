@@ -15,12 +15,13 @@ var TeamCardList = React.createClass({
         const {
             teamData
         } = this.props;
-        const renderMe = [];
-        for (var i = 0; i < teamData.length; i++) {
-                var obj = teamData[i];
-                renderMe.push(<TeamCard>{obj.teamName}</TeamCard>);
-            }
-        return <div>{renderMe}</div>
+        return (
+            <div className="teamCardList">
+                {teamData.map(function(data) {
+                    return <TeamCard key={data.teamName}>{data.teamName}</TeamCard>;
+                })}
+            </div>
+        );
     }
 
 });
