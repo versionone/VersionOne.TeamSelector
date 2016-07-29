@@ -6,6 +6,7 @@ var React = require('react')
 var TeamCard = require('./TeamCard.jsx')
 
 var AddTeamCardButton = React.createClass({
+
     render: function() {
         return (
             <div className="addButton">
@@ -13,6 +14,7 @@ var AddTeamCardButton = React.createClass({
             </div>
         );
     }
+
 });
 
 module.exports = AddTeamCardButton;

@@ -22,6 +22,7 @@ var TeamCardList = React.createClass({
             }
         return <div>{renderMe}</div>
     }
+
 });
 
 module.exports = TeamCardList;

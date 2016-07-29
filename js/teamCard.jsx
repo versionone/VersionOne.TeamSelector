@@ -15,6 +15,7 @@ var TeamCard = React.createClass({
             <div className="teamCard">{this.props.children}</div>
         );
     }
+
 });
 
 module.exports = TeamCard;
