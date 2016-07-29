@@ -1,5 +1,5 @@
-var React = require('react')
-var TeamCard = require('./TeamCard.jsx')
+import React from 'react';
+import TeamCard from './TeamCard.jsx';
 
 class AddTeamCardButton extends React.Component {
     constructor() {

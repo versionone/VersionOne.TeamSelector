@@ -1,7 +1,7 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-var TeamCardList = require('./TeamCardList.jsx')
-var AddTeamCardButton = require('./AddTeamCardButton.jsx')
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TeamCardList from './TeamCardList.jsx';
+import AddTeamCardButton from './AddTeamCardButton.jsx';
 
 //maintain state in TeamDisplay -> thats how you update the view
 //add a constructor where you can set initial state and then update that initial state
