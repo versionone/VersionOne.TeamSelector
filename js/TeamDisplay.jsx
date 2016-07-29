@@ -16,13 +16,17 @@ var AddTeamCardButton = require('./AddTeamCardButton.jsx')
 class TeamDisplay extends React.Component {
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            teamData : [
+                {"teamName":"imua", "rank":"1"},
+                {"teamName":"heisenburg", "rank":"2"}
+            ]
+        }
     }
     render() {
-        var teamData = [
-            {"teamName":"imua", "rank":"1"},
-            {"teamName":"heisenburg", "rank":"2"}
-        ]
+        const {
+            teamData
+        } = this.state;
         return (
             <div className="teamDisplay">
                 <AddTeamCardButton />
