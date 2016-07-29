@@ -13,11 +13,14 @@ h1 {
     text-align: center;
 }
 
-.addButton {
+.button-wrapper {
+    text-align: center;
+}
+
+button {
     border: 1px solid black;
     width: 150px;
     height: 40px;
-    margin: auto;
     margin-bottom: 5px;
     text-align: center;
     line-height: 40px;
