@@ -13,9 +13,12 @@ var AddTeamCardButton = require('./AddTeamCardButton.jsx')
 //?to set initial state you need a constructor
 //?to get a constructor you need to use a class and React.Component
 //store state in outer most component (TeamDisplay)
-var TeamDisplay = React.createClass({
-
-    render: function() {
+class TeamDisplay extends React.Component {
+    constructor() {
+        super();
+        this.state = {}
+    }
+    render() {
         var teamData = [
             {"teamName":"imua", "rank":"1"},
             {"teamName":"heisenburg", "rank":"2"}
@@ -27,7 +30,9 @@ var TeamDisplay = React.createClass({
             </div>
         );
     }
+}
 
-});
-
-ReactDOM.render(<TeamDisplay />, document.getElementById("content"));
+ReactDOM.render(
+    <TeamDisplay />,
+    document.getElementById("content")
+);
