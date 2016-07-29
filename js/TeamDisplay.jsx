@@ -18,10 +18,10 @@ class TeamDisplay extends React.Component {
         super();
         this.state = {
             teamData : [
-                {"teamName":"imua", "rank":"1"},
-                {"teamName":"heisenburg", "rank":"2"}
+                {"teamName":"imua", "rank": 1},
+                {"teamName":"heisenburg", "rank": 2}
             ]
-        }
+        };
     }
     render() {
         const {
