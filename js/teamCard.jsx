@@ -1,20 +1,17 @@
-/** @jsx React.DOM */
-
-'use strict'
-
-var React = require('react')
+import React from 'react';
 
 var TeamCard = React.createClass({
 
     propTypes: {
-        teamName: React.PropTypes.string.isRequired
+        children: React.PropTypes.string.isRequired
     },
 
     render: function() {
         return (
-            <div className="teamCard">{this.props.teamName}</div>
+            <div className="teamCard">{this.props.children}</div>
         );
     }
+
 });
 
 module.exports = TeamCard;

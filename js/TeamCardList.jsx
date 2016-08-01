@@ -1,20 +1,30 @@
-/** @jsx React.DOM */
+import React from 'react';
+import TeamCard from './TeamCard.jsx';
 
-'use strict'
-
-var React = require('react')
-var TeamCard = require('./TeamCard.jsx')
-
-var TeamCardList = React.createClass({
-
-    render: function() {
+class TeamCardList extends React.Component {
+    constructor(props) {
+        super(props);
+        props = {
+            teamData: React.PropTypes.array.isRequired
+        }
+    }
+    render() {
+        const {
+            teamData
+        } = this.props;
+        var teamDataRender = [];
+        for (var i = 0; i < teamData.length; i++) {
+            teamDataRender.push(
+                <TeamCard key={teamData[i].teamName}>
+                    {teamData[i].teamName}
+                </TeamCard>);
+        }
         return (
-            <div className='teamList'>
-                <TeamCard teamName='imua' />
-                <TeamCard teamName='heisenburger' />
+            <div className="teamCardList">
+                {teamDataRender}
             </div>
         );
     }
-});
+}
 
-module.exports = TeamCardList;
+export default TeamCardList;
