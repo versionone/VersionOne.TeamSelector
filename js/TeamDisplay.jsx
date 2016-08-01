@@ -18,6 +18,17 @@ class TeamDisplay extends React.Component {
                 {"teamName":"heisenburg", "rank": 2}
             ]
         };
+        this.handleClick = this.handleClick.bind(this);
+    }
+    handleClick() {
+        const {
+            teamData
+        } = this.state;
+        console.log("Click fired");
+        var nextRank = teamData.length + 1;
+        var newName = "New Team " + nextRank;
+        this.setState({teamData: [{"teamName":newName, "rank":nextRank}]});
+        console.log("State was changed");
     }
     render() {
         const {
@@ -25,7 +36,7 @@ class TeamDisplay extends React.Component {
         } = this.state;
         return (
             <div className="teamDisplay">
-                <AddTeamCardButton />
+                <AddTeamCardButton handleClick={this.handleClick} />
                 <TeamCardList teamData={teamData} />
             </div>
         );
