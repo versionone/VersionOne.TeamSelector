@@ -27,4 +27,4 @@ class TeamCardList extends React.Component {
     }
 }
 
-module.exports = TeamCardList;
+export default TeamCardList;
