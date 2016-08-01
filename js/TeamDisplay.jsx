@@ -24,11 +24,10 @@ class TeamDisplay extends React.Component {
         const {
             teamData
         } = this.state;
-        console.log("Click fired");
         var nextRank = teamData.length + 1;
         var newName = "New Team " + nextRank;
-        this.setState({teamData: [{"teamName":newName, "rank":nextRank}]});
-        console.log("State was changed");
+        teamData.push({"teamName":newName, "rank":nextRank});
+        this.setState({teamData: teamData});
     }
     render() {
         const {
