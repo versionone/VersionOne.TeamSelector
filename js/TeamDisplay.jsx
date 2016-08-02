@@ -18,9 +18,9 @@ class TeamDisplay extends React.Component {
                 {"teamName":"heisenburg", "rank": 2}
             ]
         };
-        this.handleClick = this.handleClick.bind(this);
+        this.addButtonClick = this.addButtonClick.bind(this);
     }
-    handleClick() {
+    addButtonClick() {
         const {
             teamData
         } = this.state;
@@ -35,7 +35,7 @@ class TeamDisplay extends React.Component {
         } = this.state;
         return (
             <div className="teamDisplay">
-                <AddTeamCardButton handleClick={this.handleClick} />
+                <AddTeamCardButton addButtonClick={this.addButtonClick} />
                 <TeamCardList teamData={teamData} />
             </div>
         );
