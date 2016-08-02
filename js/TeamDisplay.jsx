@@ -30,17 +30,20 @@ class TeamDisplay extends React.Component {
         teamData.push({"teamName":newName, "rank":nextRank});
         this.setState({teamData: teamData});
     }
-    editTeamName(testString, event) {
-        console.log(testString);
-        /*var newTeamData = this.state.teamData;
+    editTeamName(oldTeamName, event) {
+        const {
+            teamData
+        } = this.state;
+        console.log("Old Name : " + oldTeamName);
         var newTeamName = event.target.value;
-        for (var teamName in newTeamData) {
-            if (newTeamData[i].teamName === oldTeamName) {
-                newTeamData[i].teamName = newTeamName;
+        console.log("New Name : " + newTeamName);
+        for (var i = 0; i < teamData.length; i++) {
+            if (teamData[i].teamName === oldTeamName) {
+                teamData[i].teamName = newTeamName;
             }
             break;
         }
-        this.setState({teamData: newTeamData});*/
+        this.setState({teamData: teamData});
     }
     render() {
         const {

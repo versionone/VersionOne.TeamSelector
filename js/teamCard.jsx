@@ -7,10 +7,13 @@ class TeamCard extends React.Component {
     render() {
         return (
             <div className="teamCard">
-                <input type="text" value={this.props.teamName} onChange={this.props.editTeamName.bind(this, this.props.teamName)} />
+                <form>
+                    <input type="text" value={this.props.teamName} onChange={this.props.editTeamName.bind(this, this.props.teamName)} />
+                </form>
             </div>
         );
     }
+    /**/
 };
 
 export default TeamCard;
