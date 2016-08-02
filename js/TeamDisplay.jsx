@@ -19,6 +19,7 @@ class TeamDisplay extends React.Component {
             ]
         };
         this.addButtonClick = this.addButtonClick.bind(this);
+        this.editTeamName = this.editTeamName.bind(this);
     }
     addButtonClick() {
         const {
@@ -29,6 +30,18 @@ class TeamDisplay extends React.Component {
         teamData.push({"teamName":newName, "rank":nextRank});
         this.setState({teamData: teamData});
     }
+    editTeamName(testString, event) {
+        console.log(testString);
+        /*var newTeamData = this.state.teamData;
+        var newTeamName = event.target.value;
+        for (var teamName in newTeamData) {
+            if (newTeamData[i].teamName === oldTeamName) {
+                newTeamData[i].teamName = newTeamName;
+            }
+            break;
+        }
+        this.setState({teamData: newTeamData});*/
+    }
     render() {
         const {
             teamData
@@ -36,7 +49,7 @@ class TeamDisplay extends React.Component {
         return (
             <div className="teamDisplay">
                 <AddTeamCardButton addButtonClick={this.addButtonClick} />
-                <TeamCardList teamData={teamData} />
+                <TeamCardList teamData={teamData} editTeamName={this.editTeamName} />
             </div>
         );
     }

@@ -1,17 +1,16 @@
 import React from 'react';
 
-var TeamCard = React.createClass({
-
-    propTypes: {
-        children: React.PropTypes.string.isRequired
-    },
-
-    render: function() {
+class TeamCard extends React.Component {
+    constructor(props) {
+        super();
+    }
+    render() {
         return (
-            <div className="teamCard">{this.props.children}</div>
+            <div className="teamCard">
+                <input type="text" value={this.props.teamName} onChange={this.props.editTeamName.bind(this, this.props.teamName)} />
+            </div>
         );
     }
+};
 
-});
-
-module.exports = TeamCard;
+export default TeamCard;
