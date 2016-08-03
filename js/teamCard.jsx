@@ -10,6 +10,11 @@ class TeamCard extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this);
     }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            teamNameInput: nextProps.teamName
+        });
+    }
     handleChange(event) {
         var oldTeamName = this.state.teamNameInput;
         var newTeamName = event.target.value;
@@ -19,7 +24,7 @@ class TeamCard extends React.Component {
     render() {
         return (
             <div className="teamCard">
-                <CloseButton closeTeamCard={this.props.closeTeamCard} />
+                <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
                 <form>
                     <input type="text" value={this.state.teamNameInput} onChange={this.handleChange}></input>
                 </form>

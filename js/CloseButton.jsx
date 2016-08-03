@@ -5,8 +5,12 @@ class CloseButton extends React.Component {
         super();
     }
     render() {
+        const {
+            closeTeamCard,
+            closeTeamName
+        } = this.props
         return (
-            <button className="close-btn" onClick={this.props.closeTeamCard}>x</button>
+            <button className="close-btn" onClick={closeTeamCard.bind(this, closeTeamName)}>x</button>
         );
     }
 }
