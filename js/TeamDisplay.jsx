@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TeamCardList from './TeamCardList.jsx';
 import AddTeamCardButton from './AddTeamCardButton.jsx';
+import _ from 'underscore';
 
 class TeamDisplay extends React.Component {
     constructor() {
@@ -14,6 +15,7 @@ class TeamDisplay extends React.Component {
         };
         this.addButtonClick = this.addButtonClick.bind(this);
         this.editTeamName = this.editTeamName.bind(this);
+        this.closeTeamCard = this.closeTeamCard.bind(this);
     }
     addButtonClick() {
         const {
@@ -28,15 +30,25 @@ class TeamDisplay extends React.Component {
         const {
             teamData
         } = this.state;
-        console.log(oldTeamName);
-        console.log("editTeamName was called");
-        console.log(newTeamName);
         for (var i = 0; i < teamData.length; i++) { //use underscore to do this bro
             if (teamData[i].teamName === oldTeamName) {
                 teamData[i].teamName = newTeamName;
+                break;
             }
         }
         this.setState({teamData: teamData});
+    }
+    closeTeamCard(closeTeamName) {
+        const {
+            teamData
+        } = this.state;
+        this.setState({teamData:
+            _.without(teamData,
+                _.findWhere(teamData,
+                    {teamName: closeTeamName}
+                )
+            )
+        });
     }
     render() {
         const {
@@ -45,7 +57,7 @@ class TeamDisplay extends React.Component {
         return (
             <div className="teamDisplay">
                 <AddTeamCardButton addButtonClick={this.addButtonClick} />
-                <TeamCardList teamData={teamData} editTeamName={this.editTeamName} />
+                <TeamCardList teamData={teamData} editTeamName={this.editTeamName} closeTeamCard={this.closeTeamCard}/>
             </div>
         );
     }

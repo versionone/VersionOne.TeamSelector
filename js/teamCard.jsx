@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import CloseButton from './CloseButton.jsx';
 
 class TeamCard extends React.Component {
     constructor(props) {
@@ -7,6 +9,11 @@ class TeamCard extends React.Component {
             teamNameInput: props.teamName
         }
         this.handleChange = this.handleChange.bind(this);
+    }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            teamNameInput: nextProps.teamName
+        });
     }
     handleChange(event) {
         var oldTeamName = this.state.teamNameInput;
@@ -17,6 +24,7 @@ class TeamCard extends React.Component {
     render() {
         return (
             <div className="teamCard">
+                <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
                 <form>
                     <input type="text" value={this.state.teamNameInput} onChange={this.handleChange}></input>
                 </form>

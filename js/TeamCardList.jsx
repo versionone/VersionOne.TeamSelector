@@ -11,15 +11,17 @@ class TeamCardList extends React.Component {
     render() {
         const {
             teamData,
-            editTeamName
+            editTeamName,
+            closeTeamCard
         } = this.props;
         var teamDataRender = [];
         for (var i = 0; i < teamData.length; i++) {
             teamDataRender.push(
                 <TeamCard
                     key={i}
+                    teamName={teamData[i].teamName}
                     editTeamName={editTeamName}
-                    teamName={teamData[i].teamName}>
+                    closeTeamCard={closeTeamCard}>
                 </TeamCard>
             );
         }
