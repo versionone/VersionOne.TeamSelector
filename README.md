@@ -10,6 +10,7 @@ React Imports with ES2015: https://www.jayway.com/2015/03/04/using-react-with-ec
 React Forms Documentation: https://facebook.github.io/react/docs/forms.html
 React Update State with Input Field: http://stackoverflow.com/questions/28773839/react-form-onchange-setstate-one-step-behind
 React Input Loses Focus on Rerender: http://reactkungfu.com/2015/09/react-js-loses-input-focus-on-typing/
+React Managing State with Input Fields Examples: https://blog.iansinnott.com/managing-state-and-controlled-form-fields-with-react/ (note mixins not compatible with ES6)
 Webpack: https://web-design-weekly.com/2014/09/24/diving-webpack/
 Webpack Help: http://stackoverflow.com/questions/33502987/webpack-bundle-js-not-found
 BabelRc: https://babeljs.io/docs/usage/babelrc/
