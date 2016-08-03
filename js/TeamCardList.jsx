@@ -4,8 +4,8 @@ import TeamCard from './TeamCard.jsx';
 class TeamCardList extends React.Component {
     constructor(props) {
         super(props);
-        this.props = {
-            teamData: props.teamData
+        props = {
+            teamData: React.PropTypes.array.isRequired
         }
     }
     render() {
