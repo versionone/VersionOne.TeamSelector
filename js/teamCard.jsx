@@ -1,17 +1,28 @@
 import React from 'react';
 
-var TeamCard = React.createClass({
-
-    propTypes: {
-        children: React.PropTypes.string.isRequired
-    },
-
-    render: function() {
+class TeamCard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            teamNameInput: props.teamName
+        }
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event) {
+        var oldTeamName = this.state.teamNameInput;
+        var newTeamName = event.target.value;
+        this.setState({teamNameInput: newTeamName});
+        this.props.editTeamName(oldTeamName, newTeamName);
+    }
+    render() {
         return (
-            <div className="teamCard">{this.props.children}</div>
+            <div className="teamCard">
+                <form>
+                    <input type="text" value={this.state.teamNameInput} onChange={this.handleChange}></input>
+                </form>
+            </div>
         );
     }
+};
 
-});
-
-module.exports = TeamCard;
+export default TeamCard;

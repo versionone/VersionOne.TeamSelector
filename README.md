@@ -7,6 +7,10 @@ React Render Loop: https://thinkster.io/iterating-and-rendering-loops-in-react
 React Dynamic Children Bug: https://facebook.github.io/react/docs/multiple-components.html#dynamic-children
 React Button Example: https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html
 React Imports with ES2015: https://www.jayway.com/2015/03/04/using-react-with-ecmascript-6/
+React Forms Documentation: https://facebook.github.io/react/docs/forms.html
+React Update State with Input Field: http://stackoverflow.com/questions/28773839/react-form-onchange-setstate-one-step-behind
+React Input Loses Focus on Rerender: http://reactkungfu.com/2015/09/react-js-loses-input-focus-on-typing/
+React Managing State with Input Fields Examples: https://blog.iansinnott.com/managing-state-and-controlled-form-fields-with-react/ (note mixins not compatible with ES6)
 Webpack: https://web-design-weekly.com/2014/09/24/diving-webpack/
 Webpack Help: http://stackoverflow.com/questions/33502987/webpack-bundle-js-not-found
 BabelRc: https://babeljs.io/docs/usage/babelrc/
