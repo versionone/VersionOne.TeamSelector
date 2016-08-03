@@ -30,13 +30,13 @@ class TeamDisplay extends React.Component {
         teamData.push({"teamName":newName, "rank":nextRank});
         this.setState({teamData: teamData});
     }
-    editTeamName(oldTeamName, event) {
+    editTeamName(oldTeamName, newTeamName) {
         const {
             teamData
         } = this.state;
-        console.log("Old Name : " + oldTeamName);
-        var newTeamName = event.target.value;
-        console.log("New Name : " + newTeamName);
+        console.log(oldTeamName);
+        console.log("editTeamName was called");
+        console.log(newTeamName);
         for (var i = 0; i < teamData.length; i++) {
             if (teamData[i].teamName === oldTeamName) {
                 teamData[i].teamName = newTeamName;

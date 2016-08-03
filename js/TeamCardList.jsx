@@ -4,8 +4,8 @@ import TeamCard from './TeamCard.jsx';
 class TeamCardList extends React.Component {
     constructor(props) {
         super(props);
-        props = {
-            teamData: React.PropTypes.array.isRequired
+        this.props = {
+            teamData: props.teamData
         }
     }
     render() {
@@ -17,9 +17,8 @@ class TeamCardList extends React.Component {
         for (var i = 0; i < teamData.length; i++) {
             teamDataRender.push(
                 <TeamCard
-                    key={teamData[i].teamName}
+                    key={i}
                     editTeamName={editTeamName}
-                    teamData={teamData}
                     teamName={teamData[i].teamName}>
                 </TeamCard>
             );
