@@ -2,7 +2,7 @@ import React from 'react';
 import TeamCard from './TeamCard.jsx';
 
 class AddTeamCardButton extends React.Component {
-    constructor(props) {
+    constructor() {
         super();
     }
     render() {
