@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TeamCardList from './TeamCardList.jsx';
+import ShuffleButton from './ShuffleButton.jsx';
 import AddTeamCardButton from './AddTeamCardButton.jsx';
 import _ from 'underscore';
 
@@ -16,6 +17,7 @@ class TeamDisplay extends React.Component {
         this.addButtonClick = this.addButtonClick.bind(this);
         this.editTeamName = this.editTeamName.bind(this);
         this.closeTeamCard = this.closeTeamCard.bind(this);
+        this.shuffleTeamCards = this.shuffleTeamCards.bind(this);
     }
     addButtonClick() {
         const {
@@ -50,13 +52,29 @@ class TeamDisplay extends React.Component {
             )
         });
     }
+    shuffleTeamCards() {
+        const {
+            teamData
+        } = this.state;
+        var swapRange = teamData.length, swap, randomPosition;
+        while (swapRange) {
+            randomPosition = Math.floor(Math.random() * swapRange--);
+            swap = teamData[swapRange];
+            teamData[swapRange] = teamData[randomPosition];
+            teamData[randomPosition] = swap;
+        }
+        this.setState({teamData: teamData});
+    }
     render() {
         const {
             teamData
         } = this.state;
         return (
             <div className="teamDisplay">
-                <AddTeamCardButton addButtonClick={this.addButtonClick} />
+                <div className="button-wrapper">
+                    <ShuffleButton shuffleTeamCards={this.shuffleTeamCards} />
+                    <AddTeamCardButton addButtonClick={this.addButtonClick} />
+                </div>
                 <TeamCardList teamData={teamData} editTeamName={this.editTeamName} closeTeamCard={this.closeTeamCard}/>
             </div>
         );

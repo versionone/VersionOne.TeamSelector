@@ -7,11 +7,9 @@ class AddTeamCardButton extends React.Component {
     }
     render() {
         return (
-            <div className="button-wrapper">
-                <button onClick={this.props.addButtonClick}>
-                    Add Team Card
-                </button>
-            </div>
+            <button className="add-btn" onClick={this.props.addButtonClick}>
+                Add Team Card
+            </button>
         );
     }
 }
