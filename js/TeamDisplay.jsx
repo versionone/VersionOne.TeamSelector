@@ -3,12 +3,6 @@ import ReactDOM from 'react-dom';
 import TeamCardList from './TeamCardList.jsx';
 import AddTeamCardButton from './AddTeamCardButton.jsx';
 
-//maintain state in TeamDisplay -> thats how you update the view
-//add a constructor where you can set initial state and then update that initial state
-//?class x extends React.Component
-//?to set initial state you need a constructor
-//?to get a constructor you need to use a class and React.Component
-//store state in outer most component (TeamDisplay)
 class TeamDisplay extends React.Component {
     constructor() {
         super();
@@ -37,11 +31,10 @@ class TeamDisplay extends React.Component {
         console.log(oldTeamName);
         console.log("editTeamName was called");
         console.log(newTeamName);
-        for (var i = 0; i < teamData.length; i++) {
+        for (var i = 0; i < teamData.length; i++) { //use underscore to do this bro
             if (teamData[i].teamName === oldTeamName) {
                 teamData[i].teamName = newTeamName;
             }
-            break;
         }
         this.setState({teamData: teamData});
     }
