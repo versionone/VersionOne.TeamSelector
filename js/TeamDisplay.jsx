@@ -35,6 +35,9 @@ class TeamDisplay extends React.Component {
         }
         this.setState({teamData: teamData});
     }
+    closeTeamCard() {
+        alert("Team Card close was clicked");
+    }
     render() {
         const {
             teamData
@@ -42,7 +45,7 @@ class TeamDisplay extends React.Component {
         return (
             <div className="teamDisplay">
                 <AddTeamCardButton addButtonClick={this.addButtonClick} />
-                <TeamCardList teamData={teamData} editTeamName={this.editTeamName} />
+                <TeamCardList teamData={teamData} editTeamName={this.editTeamName} closeTeamCard={this.closeTeamCard}/>
             </div>
         );
     }

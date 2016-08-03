@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import CloseButton from './CloseButton.jsx';
 
 class TeamCard extends React.Component {
     constructor(props) {
@@ -17,6 +19,7 @@ class TeamCard extends React.Component {
     render() {
         return (
             <div className="teamCard">
+                <CloseButton closeTeamCard={this.props.closeTeamCard} />
                 <form>
                     <input type="text" value={this.state.teamNameInput} onChange={this.handleChange}></input>
                 </form>
