@@ -28,9 +28,6 @@ class TeamDisplay extends React.Component {
         const {
             teamData
         } = this.state;
-        console.log(oldTeamName);
-        console.log("editTeamName was called");
-        console.log(newTeamName);
         for (var i = 0; i < teamData.length; i++) { //use underscore to do this bro
             if (teamData[i].teamName === oldTeamName) {
                 teamData[i].teamName = newTeamName;
