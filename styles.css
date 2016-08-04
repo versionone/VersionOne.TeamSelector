@@ -65,12 +65,15 @@ button {
 }
 
 .close-btn {
-    border: 1px solid red;
+    background-image: url('./icons/close-icon.png');
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-color: transparent;
     width: 30px;
     height: 30px;
     margin: 0px;
     position: absolute;
-    right: -1px;
-    top: -1px;
+    right: 3px;
+    top: 3px;
     line-height: normal;
 }

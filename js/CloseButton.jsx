@@ -10,10 +10,9 @@ class CloseButton extends React.Component {
             closeTeamName
         } = this.props
         return (
-            <button className="close-btn" onClick={closeTeamCard.bind(this, closeTeamName)}>x</button>
+            <button className="close-btn" onClick={closeTeamCard.bind(this, closeTeamName)} />
         );
     }
 }
 
 export default CloseButton;
-        
