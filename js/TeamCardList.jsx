@@ -9,14 +9,13 @@ class TeamCardList extends React.Component {
         super(props);
     }
     findColor(colorArray, prevColor1, prevColor2) {
-        var newColorArray = colorArray;
         if (prevColor1 != null) {
-            newColorArray = _.without(newColorArray, prevColor1);
+            colorArray = _.without(colorArray, prevColor1);
         }
         if (prevColor2 != null) {
-            newColorArray = _.without(newColorArray, prevColor2);
+            colorArray = _.without(colorArray, prevColor2);
         }
-        var color = newColorArray[Math.floor(Math.random() * newColorArray.length)];
+        var color = colorArray[Math.floor(Math.random() * colorArray.length)];
         return color;
     }
     render() {
