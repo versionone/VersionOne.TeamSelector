@@ -45,10 +45,10 @@ class TeamCard extends React.Component {
             backgroundColor: this.setColorHex(this.props.cardColor)
         }
         return (
-            <div className="team-card">
+            <div style={cardStyle} className="team-card">
                 <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
                 <form>
-                    <input type="text" style={cardStyle} value={this.state.teamNameInput} onChange={this.handleChange}></input>
+                    <input type="text" value={this.state.teamNameInput} onChange={this.handleChange}></input>
                 </form>
                 <span style={cardStyle} className="card-point" />
             </div>
