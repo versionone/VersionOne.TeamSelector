@@ -1,9 +1,10 @@
 body {
-    background-color: #333333;
+    background-color: #1E1E1E;
 }
 
 h1 {
     text-align: center;
+    color: white;
 }
 
 .team-card {
