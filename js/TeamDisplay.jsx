@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'underscore';
 import TeamCardList from './TeamCardList.jsx';
 import ShuffleButton from './ShuffleButton.jsx';
 import AddTeamCardButton from './AddTeamCardButton.jsx';
-import _ from 'underscore';
 
 class TeamDisplay extends React.Component {
     constructor() {
