@@ -14,8 +14,8 @@ class TeamDisplay extends React.Component {
                 {"teamName":"heisenburg", "rank": 2, "cardColor":"blue"}
             ],
             colorArray : ["purple", "orange", "green", "blue"],
-            prevColor1: React.PropTypes.string.isRequired,
-            prevColor2: React.PropTypes.string.isRequired
+            prevColor1: "green",
+            prevColor2: "blue"
         };
         this.addButtonClick = this.addButtonClick.bind(this);
         this.editTeamName = this.editTeamName.bind(this);
@@ -33,7 +33,6 @@ class TeamDisplay extends React.Component {
         var newName = "New Team " + nextRank;
         teamData.push({"teamName":newName, "rank":nextRank, "cardColor":this.findColor(colorArray, prevColor1, prevColor2)});
         this.setState({teamData: teamData});
-        debugger;
     }
     editTeamName(oldTeamName, newTeamName) {
         const {
