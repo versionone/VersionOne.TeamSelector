@@ -23,7 +23,7 @@ class TeamCard extends React.Component {
     }
     render() {
         return (
-            <div className="teamCard">
+            <div className="team-card">
                 <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
                 <form>
                     <input type="text" value={this.state.teamNameInput} onChange={this.handleChange}></input>
