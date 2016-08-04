@@ -9,7 +9,7 @@ class TeamCardList extends React.Component {
     render() {
         const {
             teamData,
-            editTeamName,
+            editTeamCard,
             closeTeamCard,
         } = this.props;
         var teamDataRender = [];
@@ -18,7 +18,7 @@ class TeamCardList extends React.Component {
                 <TeamCard
                     key={i}
                     teamName={teamData[i].teamName}
-                    editTeamName={editTeamName}
+                    editTeamCard={editTeamCard}
                     closeTeamCard={closeTeamCard}
                     cardColor={teamData[i].cardColor}>
                 </TeamCard>

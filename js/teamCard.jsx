@@ -9,18 +9,18 @@ class TeamCard extends React.Component {
             teamNameInput: props.teamName,
             cardColor: props.cardColor
         }
-        this.handleChange = this.handleChange.bind(this);
+        this.handleEditTeamCard = this.handleEditTeamCard.bind(this);
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
             teamNameInput: nextProps.teamName,
         });
     }
-    handleChange(event) {
+    handleEditTeamCard(event) {
         var oldTeamName = this.state.teamNameInput;
         var newTeamName = event.target.value;
         this.setState({teamNameInput: newTeamName});
-        this.props.editTeamName(oldTeamName, newTeamName);
+        this.props.editTeamCard(oldTeamName, newTeamName);
     }
     setColorHex(cardColor) {
         var hexColor;
@@ -48,7 +48,7 @@ class TeamCard extends React.Component {
             <div style={cardStyle} className="team-card">
                 <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
                 <form>
-                    <input type="text" value={this.state.teamNameInput} onChange={this.handleChange}></input>
+                    <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard}></input>
                 </form>
                 <span style={cardStyle} className="card-point" />
             </div>
