@@ -10,9 +10,12 @@ class TeamDisplay extends React.Component {
         super();
         this.state = {
             teamData : [
-                {"teamName":"imua", "rank": 1},
-                {"teamName":"heisenburg", "rank": 2}
-            ]
+                {"teamName":"imua", "rank": 1, "cardColor":"green"},
+                {"teamName":"heisenburg", "rank": 2, "cardColor":"blue"}
+            ],
+            colorArray : ["purple", "orange", "green", "blue"],
+            prevColor1: React.PropTypes.string.isRequired,
+            prevColor2: React.PropTypes.string.isRequired
         };
         this.addButtonClick = this.addButtonClick.bind(this);
         this.editTeamName = this.editTeamName.bind(this);
@@ -21,12 +24,16 @@ class TeamDisplay extends React.Component {
     }
     addButtonClick() {
         const {
-            teamData
+            teamData,
+            colorArray,
+            prevColor1,
+            prevColor2
         } = this.state;
         var nextRank = teamData.length + 1;
         var newName = "New Team " + nextRank;
-        teamData.push({"teamName":newName, "rank":nextRank});
+        teamData.push({"teamName":newName, "rank":nextRank, "cardColor":this.findColor(colorArray, prevColor1, prevColor2)});
         this.setState({teamData: teamData});
+        debugger;
     }
     editTeamName(oldTeamName, newTeamName) {
         const {
@@ -64,6 +71,24 @@ class TeamDisplay extends React.Component {
             teamData[randomPosition] = swap;
         }
         this.setState({teamData: teamData});
+    }
+    findColor() {
+        const {
+            colorArray,
+            prevColor1,
+            prevColor2
+        } = this.state
+        var newColorArray = colorArray;
+        if (prevColor1 != null) {
+            newColorArray = _.without(newColorArray, prevColor1);
+        }
+        if (prevColor2 != null) {
+            newColorArray = _.without(newColorArray, prevColor2);
+        }
+        var color = newColorArray[Math.floor(Math.random() * newColorArray.length)];
+        this.setState({prevColor2 : prevColor1});
+        this.setState({prevColor1 : color});
+        return color;
     }
     render() {
         const {
