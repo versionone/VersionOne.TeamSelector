@@ -3,7 +3,6 @@ h1 {
 }
 
 .team-card {
-    border: 1px solid black;
     width: 500px;
     height: 100px;
     position: relative;
@@ -12,21 +11,21 @@ h1 {
 
 input[type=text] {
     width: 100%;
-    line-height: 98px;
+    line-height: 100px;
     text-align: center;
     vertical-align: middle;
     border: 0px;
     font-size: 3em;
+    color: white;
 }
 
-.team-card:after {
-    content: "";
+.card-point {
     position: absolute;
     display: inline-block;
     right: 227px;
-    bottom: -20px;
-    width: 40px;
-    height: 40px;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
     background-color: red;
     z-index: 1;
     -ms-transform: rotate(45deg); /* IE 9 */
