@@ -20,7 +20,7 @@ class TeamDisplay extends React.Component {
                 {"teamName":"imua", "rank": 1, "cardColor":"green"},
                 {"teamName":"heisenburg", "rank": 2, "cardColor":"blue"}
             ],
-            colorArray : ["purple", "orange", "green", "blue"]
+            colorArray : ["purple", "green", "blue", "red", "yellow"]
         };
         this.addTeamCard = this.addTeamCard.bind(this);
         this.editTeamCard = this.editTeamCard.bind(this);

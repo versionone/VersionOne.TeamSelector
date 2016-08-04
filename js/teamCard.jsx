@@ -26,16 +26,19 @@ class TeamCard extends React.Component {
         var hexColor;
         switch (cardColor) {
             case "purple":
-                hexColor = "#976E98"
-                break;
-            case "orange":
-               hexColor = "#F6754D"
+                hexColor = "#976E98";
                 break;
             case "green":
-                hexColor = "#01AE9A"
+                hexColor = "#53c68c";
                 break;
             case "blue":
-                hexColor = "#2698C4"
+                hexColor = "#2980B9";
+                break;
+            case "red":
+                hexColor = "#f08675";
+                break;
+            case "yellow":
+                hexColor= "#f9e286";
                 break;
         }
         return hexColor;
