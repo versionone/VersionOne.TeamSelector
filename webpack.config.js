@@ -3,7 +3,7 @@ module.exports = {
     './js/TeamDisplay.jsx'
   ],
   output: {
-    path: _dirname,
+    path: __dirname,
     publicPath: '/',
     filename: 'bundle.js'
   },
