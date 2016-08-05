@@ -41,12 +41,12 @@ class TeamDisplay extends React.Component {
         const {
             teamData
         } = this.state;
-        for (var i = 0; i < teamData.length; i++) { //use underscore to do this bro
-            if (teamData[i].teamName === oldTeamName) {
-                teamData[i].teamName = newTeamName;
-                break;
-            }
-        }
+        var teamIndex = _.indexOf(teamData,
+            _.findWhere(teamData,
+                {teamName: oldTeamName}
+            )
+        );
+        teamData[teamIndex].teamName = newTeamName;
         this.setState({teamData: teamData});
     }
     closeTeamCard(closeTeamName) {
