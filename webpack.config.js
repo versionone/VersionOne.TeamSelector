@@ -1,11 +1,23 @@
 module.exports = {
-  entry: './js/TeamDisplay.jsx',
+  entry: [
+    './js/TeamDisplay.jsx'
+  ],
   output: {
-    filename: 'bundle.js'   
+    path: _dirname,
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   module: {
-        loaders: [
-          {test: /\.jsx?$/, loader: 'babel-loader'},
-        ]
-    }
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
+      query: {
+        presets: ['es2015', 'react']
+      }
+    }]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  }
 };
