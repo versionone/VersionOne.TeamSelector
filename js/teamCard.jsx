@@ -38,7 +38,7 @@ class TeamCard extends React.Component {
                 hexColor = "#f08675";
                 break;
             case "yellow":
-                hexColor= "#f9e286";
+                hexColor= "#F0DC89";
                 break;
         }
         return hexColor;
