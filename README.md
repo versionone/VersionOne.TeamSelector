@@ -27,26 +27,31 @@
 
 *React Component Lifecycle: https://facebook.github.io/react/docs/component-specs.html
 
+---
 
 *Webpack: https://web-design-weekly.com/2014/09/24/diving-webpack/
 
 *Webpack Help: http://stackoverflow.com/questions/33502987/webpack-bundle-js-not-found
 
+---
 
 *BabelRc: https://babeljs.io/docs/usage/babelrc/
 
 *Babel Loader Webpack Config: http://stackoverflow.com/questions/32730033/import-syntax-not-working-with-webpack/35525285#35525285
 
+---
 
 *JSON Objects: http://www.tutorialspoint.com/json/json_objects.htm
 
 *JSON Examples: http://www.w3schools.com/js/js_json.asp
 
+---
 
 *Underscore.js Library: http://underscorejs.org/
 
 *Underscore Map Object Function: http://stackoverflow.com/questions/19023226/map-over-object-preserving-keys
 
+---
 
 *Fisher Yates Shuffle Algorithm: https://bost.ocks.org/mike/shuffle/
 
