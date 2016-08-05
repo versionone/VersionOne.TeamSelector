@@ -55,6 +55,11 @@
 
 *Fisher Yates Shuffle Algorithm: https://bost.ocks.org/mike/shuffle/
 
+---
+
+*Deploying React to Heroku: http://revelry.media/tech-talk/2016/2/15/getting-a-simple-react-app-on-heroku
+*Heroku http-server npm package issue: http://stackoverflow.com/questions/24503059/trouble-deploying-node-js-app-to-heroku-because-of-hard-coded-port-number
+
 ##What to run from the command line:
 webpack : for building once for development
 webpack -p : for building once for production (minification)
