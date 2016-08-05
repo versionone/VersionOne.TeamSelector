@@ -2,9 +2,15 @@ body {
     background-color: #1E1E1E;
 }
 
-h1 {
+.title {
+    background-image: url('./icons/title-icon.png');
+    background-size: 500px 75px;
+    background-repeat: no-repeat;
+    background-color: transparent;
     text-align: center;
-    color: #FFFFFF;
+    width: 500px;
+    height: 75px;
+    margin: auto;
 }
 
 .team-card {
@@ -66,11 +72,11 @@ button {
 
 .close-btn {
     background-image: url('./icons/close-icon.png');
-    background-size: 30px 30px;
+    background-size: 20px 20px;
     background-repeat: no-repeat;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     margin: 0px;
     position: absolute;
     right: 3px;
