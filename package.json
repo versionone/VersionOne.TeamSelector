@@ -4,7 +4,7 @@
   "description": "An application that randomly selects the order a list of teams should present in during stand-up",
   "main": "index.js",
   "scripts": {
-    "start": "http-server"
+    "start": "http-server ./ -p ${PORT:=5000} -c-1"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-react": "^6.11.1",
+    "http-server": "*",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "webpack": "^1.13.1"
