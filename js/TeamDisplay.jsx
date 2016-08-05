@@ -9,16 +9,18 @@ import AddButton from './AddButton.jsx';
 effectively. Yes, I know putting things in global scope is bad.
 Could not put prevColors in state because setState only queues
 a state change and does not immediately change state*/
-var prevColor1 = "blue";
-var prevColor2 = "green";
+var prevColor1 = "yellow";
+var prevColor2 = "red";
 
 class TeamDisplay extends React.Component {
     constructor() {
         super();
         this.state = {
             teamData : [
-                {"teamName":"imua", "rank": 1, "cardColor":"green"},
-                {"teamName":"heisenburg", "rank": 2, "cardColor":"blue"}
+                {"teamName":"Teams show here", "rank": 1, "cardColor":"green"},
+                {"teamName":"Add different teams", "rank": 2, "cardColor":"blue"},
+                {"teamName":"Then shuffle them", "rank":3, "cardColor":"red"},
+                {"teamName":"Before daily stand-up", "rank":4, "cardColor":"yellow"},
             ],
             colorArray : ["purple", "green", "blue", "red", "yellow"]
         };
@@ -41,12 +43,12 @@ class TeamDisplay extends React.Component {
         const {
             teamData
         } = this.state;
-        for (var i = 0; i < teamData.length; i++) { //use underscore to do this bro
-            if (teamData[i].teamName === oldTeamName) {
-                teamData[i].teamName = newTeamName;
-                break;
-            }
-        }
+        var teamIndex = _.indexOf(teamData,
+            _.findWhere(teamData,
+                {teamName: oldTeamName}
+            )
+        );
+        teamData[teamIndex].teamName = newTeamName;
         this.setState({teamData: teamData});
     }
     closeTeamCard(closeTeamName) {
