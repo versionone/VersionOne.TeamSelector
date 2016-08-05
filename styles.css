@@ -1,17 +1,48 @@
-.teamCard { /*similar styling to a button but this will change*/
-    border: 1px solid black;
-    width: 300px;
-    height: 40px;
-    margin: auto;
-    position: relative;
-    margin-bottom: 5px;
-    text-align: center;
-    line-height: 40px;
-    vertical-align: middle;
+body {
+    background-color: #1E1E1E;
 }
 
-h1 {
+.title {
+    background-image: url('./icons/title-icon.png');
+    background-size: 500px 75px;
+    background-repeat: no-repeat;
+    background-color: transparent;
     text-align: center;
+    width: 500px;
+    height: 75px;
+    margin: auto;
+}
+
+.team-card {
+    width: 500px;
+    height: 100px;
+    position: relative;
+    margin: auto;
+}
+
+input[type=text] {
+    width: 100%;
+    line-height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    border: 0px;
+    font-size: 3em;
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+.card-point {
+    position: absolute;
+    display: inline-block;
+    right: 227px;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    z-index: 1;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
 }
 
 .button-wrapper {
@@ -19,22 +50,36 @@ h1 {
 }
 
 button {
-    border: 1px solid black;
-    width: 150px;
-    height: 40px;
-    margin: 5px;
+    width: 250px;
+    height: 50px;
+    border: none;
+    font-size: 1.5em;
+    text-decoration: none;
+    margin-bottom: 10px;
     text-align: center;
     line-height: 40px;
     vertical-align: middle;
+    color: #FFFFFF;
+}
+
+.add-btn {
+    background-color: #00A885;
+}
+
+.shuffle-btn {
+    background-color: #54ACD2;
 }
 
 .close-btn {
-    border: 1px solid red;
+    background-image: url('./icons/close-icon.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-color: transparent;
     width: 20px;
     height: 20px;
     margin: 0px;
     position: absolute;
-    left: 279px;
-    top: -1px;
+    right: 3px;
+    top: 3px;
     line-height: normal;
 }

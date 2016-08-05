@@ -20,6 +20,7 @@ Babel Loader Webpack Config: http://stackoverflow.com/questions/32730033/import-
 JSON Objects: http://www.tutorialspoint.com/json/json_objects.htm
 JSON Examples: http://www.w3schools.com/js/js_json.asp
 Underscore.js Library: http://underscorejs.org/
+Underscore Map Object Function: http://stackoverflow.com/questions/19023226/map-over-object-preserving-keys
 Fisher Yates Shuffle Algorithm: https://bost.ocks.org/mike/shuffle/
 
 What to run from the command line:
