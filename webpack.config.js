@@ -8,6 +8,13 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("devlopment")
+      }
+    })
+  ],
   module: {
     loaders: [{
       test: /\.jsx?$/,
