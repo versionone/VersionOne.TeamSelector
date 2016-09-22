@@ -12,18 +12,35 @@ a state change and does not immediately change state*/
 var prevColor1 = "yellow";
 var prevColor2 = "red";
 
+const DEFAULT_TEAM_DATA = [
+    {"teamName":"Teams show here", "rank": 1, "cardColor":"green"},
+    {"teamName":"Add different teams", "rank": 2, "cardColor":"blue"},
+    {"teamName":"Then shuffle them", "rank":3, "cardColor":"red"},
+    {"teamName":"Before daily stand-up", "rank":4, "cardColor":"yellow"}
+];
+
+const DEFAULT_COLOR_ARRAY = ["purple", "green", "blue", "red", "yellow"];
+
+const setTeamData = (teamData) => localStorage.setItem("teamData", JSON.stringify(teamData));
+const setColorArray = (colorArray) => localStorage.setItem("teamData", JSON.stringify(colorArray));
+
 class TeamDisplay extends React.Component {
     constructor() {
         super();
-        this.state = {
-            teamData : [
-                {"teamName":"Teams show here", "rank": 1, "cardColor":"green"},
-                {"teamName":"Add different teams", "rank": 2, "cardColor":"blue"},
-                {"teamName":"Then shuffle them", "rank":3, "cardColor":"red"},
-                {"teamName":"Before daily stand-up", "rank":4, "cardColor":"yellow"},
-            ],
-            colorArray : ["purple", "green", "blue", "red", "yellow"]
-        };
+        let teamData = localStorage.getItem("teamData");
+        let colorArray = localStorage.getItem("colorArray");
+
+        if(!teamData) {
+            setTeamData(DEFAULT_TEAM_DATA);
+            setColorArray(DEFAULT_COLOR_ARRAY);
+            teamData = DEFAULT_TEAM_DATA;
+            colorArray = DEFAULT_COLOR_ARRAY;
+        } else {
+            teamData = JSON.parse(teamData);
+            colorArray = JSON.parse(colorArray);
+        }
+
+        this.state = { teamData, colorArray };
         this.addTeamCard = this.addTeamCard.bind(this);
         this.editTeamCard = this.editTeamCard.bind(this);
         this.closeTeamCard = this.closeTeamCard.bind(this);
@@ -37,6 +54,7 @@ class TeamDisplay extends React.Component {
         var nextRank = teamData.length + 1;
         var newName = "New Team " + nextRank;
         teamData.push({"teamName":newName, "rank":nextRank, "cardColor":this.getTeamCardColor()});
+        setTeamData(teamData);
         this.setState({teamData: teamData});
     }
     editTeamCard(oldTeamName, newTeamName) {
@@ -49,19 +67,21 @@ class TeamDisplay extends React.Component {
             )
         );
         teamData[teamIndex].teamName = newTeamName;
+        setTeamData(teamData);
         this.setState({teamData: teamData});
     }
     closeTeamCard(closeTeamName) {
         const {
             teamData
         } = this.state;
-        this.setState({teamData:
-            _.without(teamData,
-                _.findWhere(teamData,
-                    {teamName: closeTeamName}
-                )
+
+        const newTeamData = _.without(teamData,
+            _.findWhere(teamData,
+                {teamName: closeTeamName}
             )
-        });
+        );
+        setTeamData(newTeamData);
+        this.setState({teamData: newTeamData});
     }
     shuffleTeamCards() {
         const {
@@ -79,6 +99,7 @@ class TeamDisplay extends React.Component {
                 return team;
             })
         var newTeamArray = _.toArray(newTeamData);
+        setTeamData(newTeamArray);
         this.setState({teamData: newTeamArray});
     }
     getTeamCardColor() {
