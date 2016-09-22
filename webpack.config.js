@@ -1,5 +1,6 @@
 module.exports = {
   entry: [
+    'webpack-dev-server/client?http://localhost:3001/',
     './js/TeamDisplay.jsx'
   ],
   output: {
