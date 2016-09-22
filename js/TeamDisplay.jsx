@@ -22,7 +22,7 @@ const DEFAULT_TEAM_DATA = [
 const DEFAULT_COLOR_ARRAY = ["purple", "green", "blue", "red", "yellow"];
 
 const setTeamData = (teamData) => localStorage.setItem("teamData", JSON.stringify(teamData));
-const setColorArray = (colorArray) => localStorage.setItem("teamData", JSON.stringify(colorArray));
+const setColorArray = (colorArray) => localStorage.setItem("colorArray", JSON.stringify(colorArray));
 
 class TeamDisplay extends React.Component {
     constructor() {
