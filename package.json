@@ -4,11 +4,11 @@
   "description": "An application that randomly selects the order a list of teams should present in during stand-up",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "build": "webpack -p --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Chris-Draper/v1-team-selector.git"
+    "url": "git+https://github.com/versionone/VersionOne.TeamSelector.git"
   },
   "keywords": [
     "VersionOne",
@@ -20,22 +20,17 @@
   "author": "Chris Draper",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Chris-Draper/v1-team-selector/issues"
+    "url": "https://github.com/versionone/VersionOne.TeamSelector/issues"
   },
-  "homepage": "https://github.com/Chris-Draper/v1-team-selector#readme",
+  "homepage": "https://github.com/versionone/VersionOne.TeamSelector#readme",
   "dependencies": {
-    "babel-core": "^6.11.4",
-    "babel-loader": "^6.2.4",
-    "babel-preset-react": "^6.11.1",
-    "express": "^4.14.0",
-    "http-server": "*",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1",
-    "webpack": "^1.13.1"
+    "react-dom": "^15.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.11.1",
     "babel-preset-es2015": "^6.9.0",
     "jsx-loader": "^0.13.2",
     "underscore": "^1.8.3",
