@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --colors --port 3001",
-    "build": "webpack -p --config webpack.config.js"
+    "build": "webpack -p --config webpack.config.js",
+    "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/versionone/VersionOne.TeamSelector.git",
-    "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
+    "url": "git+https://github.com/versionone/VersionOne.TeamSelector.git"
   },
   "keywords": [
     "VersionOne",
