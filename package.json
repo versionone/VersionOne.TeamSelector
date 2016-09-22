@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/versionone/VersionOne.TeamSelector.git"
+    "url": "git+https://github.com/versionone/VersionOne.TeamSelector.git",
+    "deploy": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
   },
   "keywords": [
     "VersionOne",
