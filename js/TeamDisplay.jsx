@@ -13,10 +13,10 @@ var prevColor1 = "yellow";
 var prevColor2 = "red";
 
 const DEFAULT_TEAM_DATA = [
-    {"teamName":"Teams show here", "rank": 1, "cardColor":"green"},
-    {"teamName":"Add different teams", "rank": 2, "cardColor":"blue"},
-    {"teamName":"Then shuffle them", "rank":3, "cardColor":"red"},
-    {"teamName":"Before daily stand-up", "rank":4, "cardColor":"yellow"}
+    {"teamName":"Teams show here", "rank": 1, "cardColor":"green", "locked":false},
+    {"teamName":"Add different teams", "rank": 2, "cardColor":"blue", "locked":false},
+    {"teamName":"Then shuffle them", "rank":3, "cardColor":"red", "locked":false},
+    {"teamName":"Before daily stand-up", "rank":4, "cardColor":"yellow", "locked":false}
 ];
 
 const DEFAULT_COLOR_ARRAY = ["purple", "green", "blue", "red", "yellow"];
@@ -45,6 +45,7 @@ class TeamDisplay extends React.Component {
         this.editTeamCard = this.editTeamCard.bind(this);
         this.closeTeamCard = this.closeTeamCard.bind(this);
         this.shuffleTeamCards = this.shuffleTeamCards.bind(this);
+        this.toggleTeamCardLock = this.toggleTeamCardLock.bind(this);
     }
     addTeamCard() {
         const {
@@ -53,7 +54,7 @@ class TeamDisplay extends React.Component {
         } = this.state;
         var nextRank = teamData.length + 1;
         var newName = "New Team " + nextRank;
-        teamData.push({"teamName":newName, "rank":nextRank, "cardColor":this.getTeamCardColor()});
+        teamData.push({"teamName":newName, "rank":nextRank, "cardColor":this.getTeamCardColor(), "locked":false});
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
@@ -67,6 +68,19 @@ class TeamDisplay extends React.Component {
             )
         );
         teamData[teamIndex].teamName = newTeamName;
+        setTeamData(teamData);
+        this.setState({teamData: teamData});
+    }
+    toggleTeamCardLock(teamName) {
+        const {
+            teamData
+        } = this.state;
+        var teamIndex = _.indexOf(teamData,
+            _.findWhere(teamData,
+                {teamName: teamName}
+            )
+        );
+        teamData[teamIndex].locked = !teamData[teamIndex].locked;
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
@@ -128,7 +142,7 @@ class TeamDisplay extends React.Component {
                     <ShuffleButton shuffleTeamCards={this.shuffleTeamCards} />
                     <AddButton addTeamCard={this.addTeamCard} />
                 </div>
-                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard}/>
+                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard} toggleTeamCardLock={this.toggleTeamCardLock}/>
             </div>
         );
     }

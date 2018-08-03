@@ -7,10 +7,12 @@ class LockButton extends React.Component {
     render() {
         const {
             lockTeamCard,
-            lockTeamName
+            lockTeamName,
+            isLocked
         } = this.props;
+        const lockIcon = isLocked ? "../icons/locked-icon.png" : "../icons/unlocked-icon.png";
         return (
-            <img src="../icons/unlocked-icon.png" className="lock-btn" onClick={lockTeamCard.bind(this, lockTeamName)} />
+            <img src={lockIcon} className="lock-btn" onClick={lockTeamCard.bind(this, lockTeamName)} />
         );
     }
 }
