@@ -67,7 +67,7 @@ webpack --watch : for continuous incremental build
 webpack -d : to include source maps
 webpack --colors : for making things pretty
 
-npm run start : for opening index.html at localhost:8080 using http-server
+npm run start : for opening index.html at localhost:3001 using http-server
 
 ##Thought processes / hurdles / future notes:
 At what level is the specific state managed?
