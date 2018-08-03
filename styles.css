@@ -68,7 +68,7 @@ input[type=text] {
     text-align: center;
 }
 
-button {
+.big-button {
     width: 250px;
     height: 50px;
     border: none;
@@ -101,6 +101,7 @@ button {
     right: 3px;
     top: 3px;
     line-height: normal;
+    border: none;
 }
 
 .lock-btn {
@@ -113,6 +114,15 @@ button {
     line-height: normal;
 }
 
+.link-land {
+    float: right;
+    margin-right: 200px;
+}
+
+.link-land-buttons button{
+    height: 20px;
+    width: 50px;
+    margin: 3px 3px 0 0;
 .jokeOfTheDay {
     color: white;
     margin-top: 15px;
