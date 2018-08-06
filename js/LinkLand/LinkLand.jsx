@@ -15,10 +15,12 @@ class LinkLand extends React.Component {
     saveLink() {
         const input = document.getElementById("linkLandInput");
         const link = input.value;
-        this.setState({
-            links: [...this.state.links, link]
-        });
-        input.value = '';
+        if (link.length) {
+            this.setState({
+                links: [...this.state.links, link]
+            });
+            input.value = '';
+        }
     };
 
     retrieveLink() {
