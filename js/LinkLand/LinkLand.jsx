@@ -12,14 +12,16 @@ class LinkLand extends React.Component {
         }
     }
 
-    saveLink() {
-        const input = document.getElementById("linkLandInput");
-        const link = input.value;
-        if (link.length) {
-            this.setState({
-                links: [...this.state.links, link]
-            });
-            input.value = '';
+    saveLink(event) {
+        if(event.type === "click" || (event.type === "keyup" && event.keyCode === 13)) {
+            const input = document.getElementById("linkLandInput");
+            const link = input.value;
+            if (link.length) {
+                this.setState({
+                    links: [...this.state.links, link]
+                });
+                input.value = '';
+            }
         }
     };
 
@@ -49,7 +51,7 @@ class LinkLand extends React.Component {
         } = this.props;
         return (
             <div className="link-land">
-                <input id="linkLandInput"/>
+                <input id="linkLandInput" onKeyUp={this.saveLink}/>
                 <div className="link-land-buttons">
                     <button onClick={this.saveLink}> Save </button>
                     <button onClick={this.retrieveLink}> Get </button>
