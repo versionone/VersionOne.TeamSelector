@@ -1,5 +1,6 @@
 import React from 'react';
-import _ from 'underscore';
+
+const setLinks = (links) => localStorage.setItem("links", JSON.stringify(links));
 
 class LinkLand extends React.Component {
     constructor(props) {
@@ -7,8 +8,12 @@ class LinkLand extends React.Component {
         this.saveLink = this.saveLink.bind(this);
         this.retrieveLink = this.retrieveLink.bind(this);
         this.clearLinks = this.clearLinks.bind(this);
+
+        let links = localStorage.getItem("links");
+        links = links ? JSON.parse(links) : [];
+
         this.state = {
-            links: [],
+            links: links,
         }
     }
 
@@ -17,9 +22,11 @@ class LinkLand extends React.Component {
             const input = document.getElementById("linkLandInput");
             const link = input.value;
             if (link.length) {
+                const links = [...this.state.links, link];
                 this.setState({
-                    links: [...this.state.links, link]
+                    links: links
                 });
+                setLinks(links);
                 input.value = '';
             }
         }
@@ -34,6 +41,7 @@ class LinkLand extends React.Component {
             this.setState({
                 links: links
             });
+            setLinks(links);
         }
     };
 
@@ -43,6 +51,7 @@ class LinkLand extends React.Component {
         this.setState({
             links: []
         });
+        setLinks([]);
     };
 
     render() {
