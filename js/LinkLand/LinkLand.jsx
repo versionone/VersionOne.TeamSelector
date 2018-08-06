@@ -6,6 +6,7 @@ class LinkLand extends React.Component {
         super(props);
         this.saveLink = this.saveLink.bind(this);
         this.retrieveLink = this.retrieveLink.bind(this);
+        this.clearLinks = this.clearLinks.bind(this);
         this.state = {
             links: [],
         }
@@ -32,6 +33,14 @@ class LinkLand extends React.Component {
         }
     };
 
+    clearLinks() {
+        const input = document.getElementById("linkLandInput");
+        input.value = '';
+        this.setState({
+            links: []
+        });
+    };
+
     render() {
         const {
 
@@ -42,7 +51,7 @@ class LinkLand extends React.Component {
                 <div className="link-land-buttons">
                     <button onClick={this.saveLink}> Save </button>
                     <button onClick={this.retrieveLink}> Get </button>
-                    <button> Clear </button>
+                    <button onClick={this.clearLinks}> Clear </button>
                 </div>
             </div>
         );
