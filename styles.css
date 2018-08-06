@@ -83,3 +83,13 @@ button {
     top: 3px;
     line-height: normal;
 }
+
+.lock-btn {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    position: absolute;
+    right: 3px;
+    top: 23px;
+    line-height: normal;
+}
