@@ -157,7 +157,7 @@ class TeamDisplay extends React.Component {
                     <ShuffleButton shuffleTeamCards={this.shuffleTeamCards} />
                     <AddButton addTeamCard={this.addTeamCard} />
                 </div>
-                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard} toggleTeamCardLock={this.toggleTeamCardLock}/>
+                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard} toggleTeamCardLock={this.toggleTeamCardLock} useDragHandle={true} lockAxis={'y'}/>
                 <JokeOfTheDay />
             </div>
         );

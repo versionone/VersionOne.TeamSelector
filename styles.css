@@ -20,6 +20,11 @@ body {
     margin: auto;
 }
 
+.teamCardList {
+    width: 500px;
+    margin: auto;
+}
+
 input[type=text] {
     width: 100%;
     line-height: 100px;
@@ -29,6 +34,20 @@ input[type=text] {
     font-size: 3em;
     color: #FFFFFF;
     background-color: transparent;
+}
+
+.DragHandler {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    display: block;
+    width: 18px;
+    height: 11px;
+    opacity: .25;
+    margin-right: 20px;
+    cursor: row-resize;
+    background: -webkit-linear-gradient(top,#000,#000 20%,#fff 0,#fff 40%,#000 0,#000 60%,#fff 0,#fff 80%,#000 0,#000);
+    background: linear-gradient(180deg,#000,#000 20%,#fff 0,#fff 40%,#000 0,#000 60%,#fff 0,#fff 80%,#000 0,#000);
 }
 
 .card-point {

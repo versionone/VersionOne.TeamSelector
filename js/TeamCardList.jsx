@@ -1,6 +1,9 @@
 import React from 'react';
 import _ from 'underscore';
 import TeamCard from './TeamCard.jsx';
+import { SortableContainer } from 'react-sortable-hoc';
+
+const SortableList = SortableContainer((props) => <TeamCardList {...props}/>);
 
 class TeamCardList extends React.Component {
     constructor(props) {
@@ -24,16 +27,18 @@ class TeamCardList extends React.Component {
                     closeTeamCard={closeTeamCard}
                     cardColor={teamData[i].cardColor}
                     isLocked={teamData[i].locked}
+                    index={i}
                 >
                 </TeamCard>
             );
         }
         return (
-            <div className="teamCardList">
-                {teamDataRender}
-            </div>
+                <div className="teamCardList"
+                >
+                    {teamDataRender}
+                </div>
         );
     }
 }
 
-export default TeamCardList;
+export default SortableList;
