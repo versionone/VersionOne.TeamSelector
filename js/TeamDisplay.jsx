@@ -4,6 +4,7 @@ import _ from 'underscore';
 import TeamCardList from './TeamCardList.jsx';
 import ShuffleButton from './ShuffleButton.jsx';
 import AddButton from './AddButton.jsx';
+import JokeOfTheDay from "./JokeOfTheDay/JokeOfTheDay";
 
 /*prevColor1 and prevColor2 need to be in global to change them
 effectively. Yes, I know putting things in global scope is bad.
@@ -157,6 +158,7 @@ class TeamDisplay extends React.Component {
                     <AddButton addTeamCard={this.addTeamCard} />
                 </div>
                 <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard} toggleTeamCardLock={this.toggleTeamCardLock}/>
+                <JokeOfTheDay />
             </div>
         );
     }
