@@ -5,6 +5,7 @@ import TeamCardList from './TeamCardList.jsx';
 import ShuffleButton from './ShuffleButton.jsx';
 import AddButton from './AddButton.jsx';
 import JokeOfTheDay from "./JokeOfTheDay/JokeOfTheDay";
+import { arrayMove } from 'react-sortable-hoc';
 
 /*prevColor1 and prevColor2 need to be in global to change them
 effectively. Yes, I know putting things in global scope is bad.
@@ -47,6 +48,7 @@ class TeamDisplay extends React.Component {
         this.closeTeamCard = this.closeTeamCard.bind(this);
         this.shuffleTeamCards = this.shuffleTeamCards.bind(this);
         this.toggleTeamCardLock = this.toggleTeamCardLock.bind(this);
+        this.swapTeams = this.swapTeams.bind(this);
     }
     addTeamCard() {
         const {
@@ -147,6 +149,15 @@ class TeamDisplay extends React.Component {
         prevColor1 = color;
         return color;
     }
+
+    swapTeams ({oldIndex, newIndex}) {
+        var newPosition = arrayMove(this.state.teamData, oldIndex, newIndex);
+        this.setState({
+            teamData: newPosition
+        });
+        setTeamData(newPosition)
+    };
+
     render() {
         const {
             teamData
@@ -157,7 +168,9 @@ class TeamDisplay extends React.Component {
                     <ShuffleButton shuffleTeamCards={this.shuffleTeamCards} />
                     <AddButton addTeamCard={this.addTeamCard} />
                 </div>
-                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard} toggleTeamCardLock={this.toggleTeamCardLock} useDragHandle={true} lockAxis={'y'}/>
+                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard}
+                              toggleTeamCardLock={this.toggleTeamCardLock} useDragHandle={true} lockAxis={'y'}
+                              onSortEnd={this.swapTeams}/>
                 <JokeOfTheDay />
             </div>
         );
