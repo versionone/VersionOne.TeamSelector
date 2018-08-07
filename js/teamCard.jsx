@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CloseButton from './CloseButton.jsx';
 import LockButton from "./LockButton";
+import { SortableElement, SortableHandle } from 'react-sortable-hoc';
+
+const DragHandle = SortableHandle(() => <span className='DragHandler'></span>); // This can be any component you want
+const SortableItem = SortableElement((props) => <TeamCard {...props}/>);
 
 class TeamCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             teamNameInput: props.teamName,
-            cardColor: props.cardColor
-        }
+            cardColor: props.cardColor,
+            index: props.index
+        };
         this.handleEditTeamCard = this.handleEditTeamCard.bind(this);
     }
     componentWillReceiveProps(nextProps) {
@@ -47,18 +52,21 @@ class TeamCard extends React.Component {
     render() {
         var cardStyle = {
             backgroundColor: this.setColorHex(this.props.cardColor)
-        }
+        };
         return (
-            <div style={cardStyle} className="team-card">
-                <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
-                <LockButton lockTeamCard={this.props.toggleTeamCardLock} lockTeamName={this.state.teamNameInput} isLocked={this.props.isLocked} />
-                <form>
-                    <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard}></input>
-                </form>
-                <span style={cardStyle} className="card-point" />
-            </div>
+                <div style={cardStyle}
+                     className="team-card"
+                    >
+                    <DragHandle/>
+                    <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
+                    <LockButton lockTeamCard={this.props.toggleTeamCardLock} lockTeamName={this.state.teamNameInput} isLocked={this.props.isLocked} />
+                    <form>
+                        <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard}></input>
+                    </form>
+                    <span style={cardStyle} className="card-point" />
+                </div>
         );
     }
-};
+}
 
-export default TeamCard;
+export default SortableItem;
