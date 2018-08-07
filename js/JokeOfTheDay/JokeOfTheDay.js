@@ -6,7 +6,7 @@ class JokeOfTheDay extends React.Component {
         super(props);
 
         this.state = {
-            joke: ''
+            joke: '',
         };
 
         this.getJoke = this.getJoke.bind(this);
@@ -26,12 +26,13 @@ class JokeOfTheDay extends React.Component {
 
     setJoke(joke){
         this.setState({
-            joke
+            joke,
         })
     }
 
     componentDidMount(){
         this.getJoke();
+        setTimeout(this.getJoke, 1000*60*60*20)
     }
 
     render() {
