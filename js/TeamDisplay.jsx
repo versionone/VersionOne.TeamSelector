@@ -193,7 +193,6 @@ class TeamDisplay extends React.Component {
                     onSortEnd={this.swapTeams}
                 />
                 <JokeOfTheDay />
-                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard} toggleTeamCardLock={this.toggleTeamCardLock}/>
                 <LinkLand/>
             </div>
         );

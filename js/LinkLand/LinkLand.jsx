@@ -1,15 +1,14 @@
 import React from 'react';
-import Time from 'react-time';
+import { DateTime, Interval } from 'luxon';
 
 const setLinks = (links) => localStorage.setItem("links", JSON.stringify(links));
 
-class LinkLand extends React.Component {
+class LinkLand extends React.PureComponent {
     constructor(props) {
         super(props);
         this.saveLink = this.saveLink.bind(this);
         this.retrieveLink = this.retrieveLink.bind(this);
         this.clearLinks = this.clearLinks.bind(this);
-        this.getTime = this.getTime.bind(this);
         this.toggleHidden = this.toggleHidden.bind(this);
 
         let links = localStorage.getItem("links");
@@ -22,18 +21,15 @@ class LinkLand extends React.Component {
     }
 
     toggleHidden () {
-        if (this.getTime() === '10:15')
+        var start = DateTime.fromObject({hour: 10, minutes: 15});
+        var end = DateTime.fromObject({hour: 10, minutes: 20});
+        var i = Interval.fromDateTimes(start, end);
+        if (i.contains(DateTime.local()) && this.state.isHidden)
             this.setState({
               isHidden: !this.state.isHidden
             })
     }
 
-    getTime() {
-        const currentDate = new Date();
-        const currentHours = currentDate.getHours();
-        const currentMinutes = currentDate.getMinutes();
-        return currentHours + ':' + currentMinutes;
-    }
     saveLink(event) {
         if(event.type === "click" || (event.type === "keyup" && event.keyCode === 13)) {
             const input = document.getElementById("linkLandInput");
@@ -71,11 +67,18 @@ class LinkLand extends React.Component {
         setLinks([]);
     };
 
+    componentDidUpdate() {
+        this.toggleHidden();
+    }
+
+    componentDidMount() {
+        this.toggleHidden();
+    }
+
     render() {
         const {
 
         } = this.props;
-        this.toggleHidden();
         const style = this.state.isHidden ?  {display: 'none'} : {};
         return (
             <div className="link-land" style={style}>
