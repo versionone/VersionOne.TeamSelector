@@ -30,7 +30,7 @@ input[type=text] {
     line-height: 100px;
     text-align: center;
     vertical-align: middle;
-    border: 0px;
+    border: 0;
     font-size: 3em;
     color: #FFFFFF;
     background-color: transparent;
@@ -96,7 +96,7 @@ button {
     background-color: transparent;
     width: 20px;
     height: 20px;
-    margin: 0px;
+    margin: 0;
     position: absolute;
     right: 3px;
     top: 3px;
@@ -126,4 +126,11 @@ button {
     right: 3px;
     top: 48px;
     line-height: normal;
+}
+
+textarea {
+    position: absolute;
+    left: 550px;
+    width: 300px;
+    height: 100px;
 }
