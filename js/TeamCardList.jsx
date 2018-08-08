@@ -15,6 +15,7 @@ class TeamCardList extends React.Component {
             editTeamCard,
             closeTeamCard,
             toggleTeamCardLock,
+            updateTeamCardNotes
         } = this.props;
         var teamDataRender = [];
         for (var i = 0; i < teamData.length; i++) {
@@ -24,9 +25,11 @@ class TeamCardList extends React.Component {
                     teamName={teamData[i].teamName}
                     editTeamCard={editTeamCard}
                     toggleTeamCardLock={toggleTeamCardLock}
+                    updateTeamCardNotes={updateTeamCardNotes}
                     closeTeamCard={closeTeamCard}
                     cardColor={teamData[i].cardColor}
                     isLocked={teamData[i].locked}
+                    notes={teamData[i].notes}
                     index={i}
                 >
                 </TeamCard>

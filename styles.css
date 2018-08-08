@@ -128,7 +128,7 @@ button {
     line-height: normal;
 }
 
-textarea {
+.noteText {
     position: absolute;
     left: 550px;
     width: 300px;

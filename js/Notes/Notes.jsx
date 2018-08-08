@@ -8,23 +8,32 @@ class Notes extends React.Component {
             isOpen: false
         };
         this.toggleOpen = this.toggleOpen.bind(this);
+        this.onTextAreaChange = this.onTextAreaChange.bind(this);
     }
 
     toggleOpen() {
-        console.log("i'm not " + this.state.isOpen + " anymore");
         this.setState({
             isOpen: !this.state.isOpen,
         });
     }
 
+    onTextAreaChange(event) {
+        const notes = event.target.value;
+        this.props.updateTeamCardNotes(this.props.teamName, notes)
+    }
+
     render() {
+        const{
+            updateTeamCardNotes,
+            notes
+        } = this.props;
         const textareaStyles = this.state.isOpen ? {} : {display: "none"};
         return (
             <span>
                 <span onClick={this.toggleOpen}>
                     <NotepadIcon />
                 </span>
-                <textarea style={textareaStyles} />
+                <textarea className="noteText" style={textareaStyles} onBlur={this.onTextAreaChange} defaultValue={notes} />
             </span>
         );
     }

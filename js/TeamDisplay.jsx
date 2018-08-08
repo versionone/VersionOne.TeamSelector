@@ -48,6 +48,7 @@ class TeamDisplay extends React.Component {
         this.closeTeamCard = this.closeTeamCard.bind(this);
         this.shuffleTeamCards = this.shuffleTeamCards.bind(this);
         this.toggleTeamCardLock = this.toggleTeamCardLock.bind(this);
+        this.updateTeamCardNotes = this.updateTeamCardNotes.bind(this);
         this.swapTeams = this.swapTeams.bind(this);
     }
     addTeamCard() {
@@ -87,6 +88,19 @@ class TeamDisplay extends React.Component {
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
+    updateTeamCardNotes(teamName, notes) {
+        const {
+            teamData
+        } = this.state;
+        const teamIndex = _.indexOf(teamData,
+            _.findWhere(teamData,
+                {teamName: teamName}
+            )
+        );
+        teamData[teamIndex].notes = notes;
+        setTeamData(teamData);
+        this.setState({teamData: teamData});
+    }
     closeTeamCard(closeTeamName) {
         const {
             teamData
@@ -123,7 +137,6 @@ class TeamDisplay extends React.Component {
             newList.push(team.locked ? team : teamsToShuffle.pop())
             return newList;
         }, []);
-        shuffledTeamData.map(team => console.log(team.teamName))
 
         const coloredTeamData = _.mapObject(shuffledTeamData, (team) => {
                 team.cardColor = this.getTeamCardColor();
@@ -138,10 +151,10 @@ class TeamDisplay extends React.Component {
             colorArray,
         } = this.state
         var newColorArray = colorArray;
-        if (prevColor1 != null) {
+        if (prevColor1 !== null) {
             newColorArray = _.without(newColorArray, prevColor1);
         }
-        if (prevColor2 != null) {
+        if (prevColor2 !== null) {
             newColorArray = _.without(newColorArray, prevColor2);
         }
         var color = newColorArray[Math.floor(Math.random() * newColorArray.length)];
@@ -168,9 +181,16 @@ class TeamDisplay extends React.Component {
                     <ShuffleButton shuffleTeamCards={this.shuffleTeamCards} />
                     <AddButton addTeamCard={this.addTeamCard} />
                 </div>
-                <TeamCardList teamData={teamData} editTeamCard={this.editTeamCard} closeTeamCard={this.closeTeamCard}
-                              toggleTeamCardLock={this.toggleTeamCardLock} useDragHandle={true} lockAxis={'y'}
-                              onSortEnd={this.swapTeams}/>
+                <TeamCardList
+                    teamData={teamData}
+                    editTeamCard={this.editTeamCard}
+                    closeTeamCard={this.closeTeamCard}
+                    toggleTeamCardLock={this.toggleTeamCardLock}
+                    updateTeamCardNotes={this.updateTeamCardNotes}
+                    useDragHandle={true}
+                    lockAxis={'y'}
+                    onSortEnd={this.swapTeams}
+                />
                 <JokeOfTheDay />
             </div>
         );
