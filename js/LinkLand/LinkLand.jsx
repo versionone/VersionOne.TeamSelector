@@ -1,6 +1,7 @@
 import React from 'react';
 import { DateTime, Interval } from 'luxon';
 import LinkInput from "./LinkInput";
+import ViewLink from "./ViewLink";
 
 const setLinks = (links) => localStorage.setItem("links", JSON.stringify(links));
 
@@ -81,7 +82,10 @@ class LinkLand extends React.PureComponent {
 
         } = this.props;
         return (
-            <LinkInput isHidden={this.state.isHidden} saveLink={this.saveLink} retrieveLink={this.retrieveLink} clearLinks={this.clearLinks}/>
+            <div>
+                <ViewLink isHidden={this.state.isHidden} link={'https://www.youtube.com/watch?v=uCLEq9V0-Yk'}/>
+                <LinkInput isHidden={this.state.isHidden} saveLink={this.saveLink} retrieveLink={this.retrieveLink} clearLinks={this.clearLinks}/>
+            </div>
         );
     }
 }
