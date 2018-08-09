@@ -30,7 +30,7 @@ input[type=text] {
     line-height: 100px;
     text-align: center;
     vertical-align: middle;
-    border: 0px;
+    border: 0;
     font-size: 3em;
     color: #FFFFFF;
     background-color: transparent;
@@ -96,7 +96,7 @@ button {
     background-color: transparent;
     width: 20px;
     height: 20px;
-    margin: 0px;
+    margin: 0;
     position: absolute;
     right: 3px;
     top: 3px;
@@ -116,4 +116,34 @@ button {
 .jokeOfTheDay {
     color: white;
     margin-top: 15px;
+}
+
+.NotepadIcon {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    position: absolute;
+    right: 3px;
+    top: 48px;
+    line-height: normal;
+}
+
+.NotepadIcon.hasNotes g {
+    animation: pulse 1s linear 0s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    fill: lightcoral;
+  }
+  100% {
+    fill: darkred;
+  }
+}
+
+.noteText {
+    position: absolute;
+    left: 550px;
+    width: 300px;
+    height: 100px;
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import CloseButton from './CloseButton.jsx';
 import LockButton from "./LockButton";
 import { SortableElement, SortableHandle } from 'react-sortable-hoc';
+import Notes from "./Notes/Notes";
 
-const DragHandle = SortableHandle(() => <span className='DragHandler'></span>); // This can be any component you want
+const DragHandle = SortableHandle(() => <span className='DragHandler' />); // This can be any component you want
 const SortableItem = SortableElement((props) => <TeamCard {...props}/>);
 
 class TeamCard extends React.Component {
@@ -60,8 +60,9 @@ class TeamCard extends React.Component {
                     <DragHandle/>
                     <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
                     <LockButton lockTeamCard={this.props.toggleTeamCardLock} lockTeamName={this.state.teamNameInput} isLocked={this.props.isLocked} />
+                    <Notes notes={this.props.notes} updateTeamCardNotes={this.props.updateTeamCardNotes} teamName={this.state.teamNameInput}/>
                     <form>
-                        <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard}></input>
+                        <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard} />
                     </form>
                     <span style={cardStyle} className="card-point" />
                 </div>
