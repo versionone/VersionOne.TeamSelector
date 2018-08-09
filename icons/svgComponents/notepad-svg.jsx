@@ -3,8 +3,12 @@ import React from 'react';
 
 class NotepadIcon extends React.Component {
     render() {
+        const {
+            className
+        } = this.props;
+        const notepadClassName = className ? `${className} notepadIcon` : "notepadIcon";
         return (
-            <svg className="notepadIcon" height="60px" version="1.1" viewBox="0 0 52 60">
+            <svg className={notepadClassName} height="60px" version="1.1" viewBox="0 0 52 60">
                     <title/>
                     <desc/>
                     <defs/>

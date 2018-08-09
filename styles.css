@@ -118,7 +118,7 @@ button {
     margin-top: 15px;
 }
 
-.NotepadIcon{
+.NotepadIcon {
     width: 20px;
     height: 20px;
     margin: 0;
@@ -126,6 +126,19 @@ button {
     right: 3px;
     top: 48px;
     line-height: normal;
+}
+
+.NotepadIcon.hasNotes g {
+    animation: pulse 1s linear 0s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    fill: lightcoral;
+  }
+  100% {
+    fill: darkred;
+  }
 }
 
 .noteText {

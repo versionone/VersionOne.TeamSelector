@@ -5,7 +5,8 @@ class Notes extends React.Component {
     constructor() {
         super();
         this.state = {
-            isOpen: false
+            isOpen: false,
+            iconChange: false
         };
         this.toggleOpen = this.toggleOpen.bind(this);
         this.onTextAreaChange = this.onTextAreaChange.bind(this);
@@ -28,10 +29,11 @@ class Notes extends React.Component {
             notes
         } = this.props;
         const textareaStyles = this.state.isOpen ? {} : {display: "none"};
+        const noteClass = this.props.notes ? "hasNotes" : "noNotes";
         return (
             <span>
                 <span onClick={this.toggleOpen}>
-                    <NotepadIcon />
+                    <NotepadIcon className={noteClass} />
                 </span>
                 <textarea className="noteText" style={textareaStyles} onBlur={this.onTextAreaChange} defaultValue={notes} />
             </span>
