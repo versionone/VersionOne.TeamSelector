@@ -11,13 +11,15 @@ class LinkLand extends React.PureComponent {
         this.saveLink = this.saveLink.bind(this);
         this.retrieveLink = this.retrieveLink.bind(this);
         this.clearLinks = this.clearLinks.bind(this);
+        this.toggleHidden = this.toggleHidden.bind(this);
 
         let links = localStorage.getItem("links");
         links = links ? JSON.parse(links) : [];
 
         this.state = {
             links: links,
-            currentLink: ''
+            currentLink: '',
+            isHidden: true
         }
     }
 
@@ -46,6 +48,11 @@ class LinkLand extends React.PureComponent {
             });
             setLinks(links);
         }
+        if (this.state.isHidden) {
+            this.setState({
+                isHidden: !this.state.isHidden
+            })
+        }
     };
 
     clearLinks() {
@@ -57,11 +64,23 @@ class LinkLand extends React.PureComponent {
         setLinks([]);
     };
 
+    toggleHidden () {
+        var start = DateTime.fromObject({hour: 10, minutes: 15});
+        var end = DateTime.fromObject({hour: 10, minutes: 20});
+        var i = Interval.fromDateTimes(start, end);
+        if (i.contains(DateTime.local()) && this.state.isHidden) {
+            this.retrieveLink();
+            this.setState({
+                isHidden: !this.state.isHidden
+            })
+        }
+    }
+
     render() {
         return (
             <div>
-                <ViewLink  link={this.state.currentLink} retrieveLink={this.retrieveLink}/>
-                <LinkInput saveLink={this.saveLink} retrieveLink={this.retrieveLink} clearLinks={this.clearLinks}/>
+                <ViewLink  link={this.state.currentLink} retrieveLink={this.retrieveLink} toggleHidden={this.toggleHidden} isHidden={this.state.isHidden}/>
+                <LinkInput saveLink={this.saveLink} retrieveLink={this.retrieveLink} clearLinks={this.clearLinks} toggleHidden={this.toggleHidden}/>
             </div>
         );
     }

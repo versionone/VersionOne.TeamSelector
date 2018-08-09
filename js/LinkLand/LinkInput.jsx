@@ -3,14 +3,12 @@ import React from 'react';
 class LinkInput extends React.PureComponent {
     render() {
         const {
-            isHidden,
             saveLink,
             retrieveLink,
             clearLinks
         } = this.props;
-        const style = isHidden ?  {display: 'none'} : {};
         return (
-            <div className="link-land" style={style}>
+            <div className="link-land">
                 <input id="linkLandInput" onKeyUp={saveLink}/>
                 <div className="link-land-buttons">
                     <button onClick={saveLink}> Save</button>
