@@ -11,7 +11,7 @@ class LinkLand extends React.PureComponent {
         this.saveLink = this.saveLink.bind(this);
         this.retrieveLink = this.retrieveLink.bind(this);
         this.clearLinks = this.clearLinks.bind(this);
-        this.toggleHidden = this.toggleHidden.bind(this);
+        this.showLinkIfTime = this.showLinkIfTime.bind(this);
 
         let links = localStorage.getItem("links");
         links = links ? JSON.parse(links) : [];
@@ -44,14 +44,10 @@ class LinkLand extends React.PureComponent {
             const linkToRetrieve = links.shift();
             this.setState({
                 links: links,
-                currentLink: linkToRetrieve
+                currentLink: linkToRetrieve,
+                isHidden: false
             });
             setLinks(links);
-        }
-        if (this.state.isHidden) {
-            this.setState({
-                isHidden: !this.state.isHidden
-            })
         }
     };
 
@@ -64,23 +60,20 @@ class LinkLand extends React.PureComponent {
         setLinks([]);
     };
 
-    toggleHidden () {
+    showLinkIfTime () {
         const start = DateTime.fromObject({hour: 10, minutes: 15});
         const end = DateTime.fromObject({hour: 10, minutes: 30});
         const i = Interval.fromDateTimes(start, end);
         if (i.contains(DateTime.local()) && this.state.isHidden) {
             this.retrieveLink();
-            this.setState({
-                isHidden: !this.state.isHidden
-            })
         }
     }
 
     render() {
         return (
             <div>
-                <ViewLink  link={this.state.currentLink} retrieveLink={this.retrieveLink} toggleHidden={this.toggleHidden} isHidden={this.state.isHidden}/>
-                <LinkInput saveLink={this.saveLink} retrieveLink={this.retrieveLink} clearLinks={this.clearLinks} toggleHidden={this.toggleHidden}/>
+                <ViewLink link={this.state.currentLink} showLinkIfTime={this.showLinkIfTime} isHidden={this.state.isHidden} showNewLink={this.retrieveLink}/>
+                <LinkInput saveLink={this.saveLink} retrieveLink={this.retrieveLink} clearLinks={this.clearLinks} />
             </div>
         );
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {invokeFunctionAt} from "../invokeFunctionAt";
+import {invokeFunctionEverydayAt} from "../invokeFunctionAt";
 
 class ViewLink extends React.PureComponent {
     constructor(props) {
@@ -7,12 +7,12 @@ class ViewLink extends React.PureComponent {
     }
 
     componentDidUpdate() {
-        this.props.toggleHidden();
+        this.props.showLinkIfTime();
     }
 
     componentDidMount() {
-        this.props.toggleHidden();
-        invokeFunctionAt(this.props.toggleHidden, 0, 10, 15, 0)
+        this.props.showLinkIfTime();
+        invokeFunctionEverydayAt(this.props.showNewLink, 10, 15, 0)
     }
 
     render() {
