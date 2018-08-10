@@ -71,7 +71,7 @@ class LinkLand extends React.PureComponent {
 
     render() {
         return (
-            <div>
+            <div className="link-land">
                 <ViewLink link={this.state.currentLink} showLinkIfTime={this.showLinkIfTime} isHidden={this.state.isHidden} showNewLink={this.retrieveLink}/>
                 <LinkInput saveLink={this.saveLink} retrieveLink={this.retrieveLink} clearLinks={this.clearLinks} />
             </div>

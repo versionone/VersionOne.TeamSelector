@@ -22,7 +22,7 @@ class ViewLink extends React.PureComponent {
         } = this.props;
         const style = isHidden ?  {display: 'none'} : {};
         return (
-            <a href={link} target='_blank' rel='noopener' style={style}>
+            <a href={link} target='_blank' rel='noopener' style={style} className="view-link">
                 {link}
             </a>
         );

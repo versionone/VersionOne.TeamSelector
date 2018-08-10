@@ -8,7 +8,7 @@ class LinkInput extends React.PureComponent {
             clearLinks
         } = this.props;
         return (
-            <div className="link-land">
+            <div className="link-input">
                 <input id="linkLandInput" onKeyUp={saveLink}/>
                 <div className="link-land-buttons">
                     <button onClick={saveLink}> Save</button>
