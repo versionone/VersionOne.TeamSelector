@@ -65,9 +65,9 @@ class LinkLand extends React.PureComponent {
     };
 
     toggleHidden () {
-        var start = DateTime.fromObject({hour: 10, minutes: 15});
-        var end = DateTime.fromObject({hour: 10, minutes: 20});
-        var i = Interval.fromDateTimes(start, end);
+        const start = DateTime.fromObject({hour: 10, minutes: 15});
+        const end = DateTime.fromObject({hour: 10, minutes: 30});
+        const i = Interval.fromDateTimes(start, end);
         if (i.contains(DateTime.local()) && this.state.isHidden) {
             this.retrieveLink();
             this.setState({

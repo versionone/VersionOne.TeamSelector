@@ -1,5 +1,5 @@
 import React from 'react';
-import {DateTime, Interval} from "luxon";
+import {invokeFunctionAt} from "../invokeFunctionAt";
 
 class ViewLink extends React.PureComponent {
     constructor(props) {
@@ -12,6 +12,7 @@ class ViewLink extends React.PureComponent {
 
     componentDidMount() {
         this.props.toggleHidden();
+        invokeFunctionAt(this.props.toggleHidden, 0, 10, 15, 0)
     }
 
     render() {
