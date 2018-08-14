@@ -10,7 +10,9 @@ class LockButton extends React.Component {
             lockTeamName,
             isLocked
         } = this.props;
-        const lockIcon = isLocked ? "../icons/locked-icon.png" : "../icons/unlocked-icon.png";
+        //because this all gets put in bundle.js, these paths are not correct in development
+        //TODO - find a way for these paths to work in both dev and prod
+        const lockIcon = isLocked ? "./icons/locked-icon.png" : "./icons/unlocked-icon.png";
         return (
             <img src={lockIcon} className="lock-btn" onClick={lockTeamCard.bind(this, lockTeamName)} />
         );
