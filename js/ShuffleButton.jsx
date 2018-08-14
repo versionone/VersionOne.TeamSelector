@@ -6,7 +6,7 @@ class ShuffleButton extends React.Component {
     }
     render() {
         return (
-            <button className="shuffle-btn" onClick={this.props.shuffleTeamCards}>
+            <button className="shuffle-btn big-button" onClick={this.props.shuffleTeamCards}>
                 Shuffle Team Cards
             </button>
         );

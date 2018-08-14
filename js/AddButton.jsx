@@ -7,7 +7,7 @@ class AddButton extends React.Component {
     }
     render() {
         return (
-            <button className="add-btn" onClick={this.props.addTeamCard}>
+            <button className="add-btn big-button" onClick={this.props.addTeamCard}>
                 Add Team Card
             </button>
         );

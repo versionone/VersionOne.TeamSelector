@@ -6,6 +6,7 @@ import ShuffleButton from './ShuffleButton.jsx';
 import AddButton from './AddButton.jsx';
 import JokeOfTheDay from "./JokeOfTheDay/JokeOfTheDay";
 import { arrayMove } from 'react-sortable-hoc';
+import LinkLand from "./LinkLand/LinkLand";
 
 /*prevColor1 and prevColor2 need to be in global to change them
 effectively. Yes, I know putting things in global scope is bad.
@@ -192,6 +193,7 @@ class TeamDisplay extends React.Component {
                     onSortEnd={this.swapTeams}
                 />
                 <JokeOfTheDay />
+                <LinkLand/>
             </div>
         );
     }

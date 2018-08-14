@@ -68,7 +68,7 @@ input[type=text] {
     text-align: center;
 }
 
-button {
+.big-button {
     width: 250px;
     height: 50px;
     border: none;
@@ -101,6 +101,7 @@ button {
     right: 3px;
     top: 3px;
     line-height: normal;
+    border: none;
 }
 
 .lock-btn {
@@ -111,6 +112,26 @@ button {
     right: 3px;
     top: 23px;
     line-height: normal;
+}
+
+.link-land {
+    float: right;
+    margin-right: 200px;
+}
+
+.link-land-buttons button {
+    height: 20px;
+    width: 50px;
+    margin: 3px 3px 0 0;
+}
+
+.view-link {
+    display: block;
+}
+
+.link-input {
+    margin-top: 5px;
+    float: right
 }
 
 .jokeOfTheDay {
@@ -146,4 +167,20 @@ button {
     left: 550px;
     width: 300px;
     height: 100px;
+}
+
+a {
+    color: gold;
+}
+
+a:visited {
+    color: goldenrod;
+}
+
+a:hover {
+    color: palegoldenrod;
+}
+
+a:active {
+    color: orangered;
 }
