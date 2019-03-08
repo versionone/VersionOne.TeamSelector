@@ -151,7 +151,11 @@ input[type=text] {
 
 .jokeOfTheDay {
     color: white;
-    margin-top: 15px;
+    font-family: serif;
+    font-style: italic;
+    font-size: 36px;
+    margin: 24px auto;
+    text-align: center;
 }
 
 .team-card .notepadIcon.noNotes {
