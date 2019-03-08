@@ -7,43 +7,32 @@ import AddButton from './AddButton.jsx';
 import JokeOfTheDay from "./JokeOfTheDay/JokeOfTheDay";
 import { arrayMove } from 'react-sortable-hoc';
 import LinkLand from "./LinkLand/LinkLand";
+import { Fade as Theme } from './themes';
 
-/*prevColor1 and prevColor2 need to be in global to change them
-effectively. Yes, I know putting things in global scope is bad.
-Could not put prevColors in state because setState only queues
-a state change and does not immediately change state*/
-var prevColor1 = "yellow";
-var prevColor2 = "red";
+const theme = new Theme();
 
 const DEFAULT_TEAM_DATA = [
-    {"teamName":"Teams show here", "rank": 1, "cardColor":"green", "locked":false},
-    {"teamName":"Add different teams", "rank": 2, "cardColor":"blue", "locked":false},
-    {"teamName":"Then shuffle them", "rank":3, "cardColor":"red", "locked":false},
-    {"teamName":"Before daily stand-up", "rank":4, "cardColor":"yellow", "locked":false}
+    {"teamName":"Teams show here", "rank": 1, "locked":false},
+    {"teamName":"Add different teams", "rank": 2, "locked":false},
+    {"teamName":"Then shuffle them", "rank":3, "locked":false},
+    {"teamName":"Before daily stand-up", "rank":4, "locked":false}
 ];
 
-const DEFAULT_COLOR_ARRAY = ["purple", "green", "blue", "red", "yellow"];
-
 const setTeamData = (teamData) => localStorage.setItem("teamData", JSON.stringify(teamData));
-const setColorArray = (colorArray) => localStorage.setItem("colorArray", JSON.stringify(colorArray));
 
 class TeamDisplay extends React.Component {
     constructor() {
         super();
         let teamData = localStorage.getItem("teamData");
-        let colorArray = localStorage.getItem("colorArray");
 
         if(!teamData) {
             setTeamData(DEFAULT_TEAM_DATA);
-            setColorArray(DEFAULT_COLOR_ARRAY);
             teamData = DEFAULT_TEAM_DATA;
-            colorArray = DEFAULT_COLOR_ARRAY;
         } else {
             teamData = JSON.parse(teamData);
-            colorArray = JSON.parse(colorArray);
         }
 
-        this.state = { teamData, colorArray };
+        this.state = { teamData };
         this.addTeamCard = this.addTeamCard.bind(this);
         this.editTeamCard = this.editTeamCard.bind(this);
         this.closeTeamCard = this.closeTeamCard.bind(this);
@@ -55,11 +44,10 @@ class TeamDisplay extends React.Component {
     addTeamCard() {
         const {
             teamData,
-            colorArray,
         } = this.state;
         var nextRank = teamData.length + 1;
         var newName = "New Team " + nextRank;
-        teamData.push({"teamName":newName, "rank":nextRank, "cardColor":this.getTeamCardColor(), "locked":false});
+        teamData.push({"teamName":newName, "rank":nextRank, "locked":false});
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
@@ -139,29 +127,8 @@ class TeamDisplay extends React.Component {
             return newList;
         }, []);
 
-        const coloredTeamData = _.mapObject(shuffledTeamData, (team) => {
-                team.cardColor = this.getTeamCardColor();
-                return team;
-            })
-        const newTeamArray = _.toArray(coloredTeamData);
-        setTeamData(newTeamArray);
-        this.setState({teamData: newTeamArray});
-    }
-    getTeamCardColor() {
-        const {
-            colorArray,
-        } = this.state
-        var newColorArray = colorArray;
-        if (prevColor1 !== null) {
-            newColorArray = _.without(newColorArray, prevColor1);
-        }
-        if (prevColor2 !== null) {
-            newColorArray = _.without(newColorArray, prevColor2);
-        }
-        var color = newColorArray[Math.floor(Math.random() * newColorArray.length)];
-        prevColor2 = prevColor1;
-        prevColor1 = color;
-        return color;
+        setTeamData(shuffledTeamData);
+        this.setState({teamData: shuffledTeamData});
     }
 
     swapTeams ({oldIndex, newIndex}) {
@@ -191,6 +158,7 @@ class TeamDisplay extends React.Component {
                     useDragHandle={true}
                     lockAxis={'y'}
                     onSortEnd={this.swapTeams}
+                    theme={theme}
                 />
                 <JokeOfTheDay />
                 <LinkLand/>

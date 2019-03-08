@@ -12,7 +12,6 @@ class TeamCard extends React.Component {
         super(props);
         this.state = {
             teamNameInput: props.teamName,
-            cardColor: props.cardColor,
             index: props.index
         };
         this.handleEditTeamCard = this.handleEditTeamCard.bind(this);
@@ -28,30 +27,10 @@ class TeamCard extends React.Component {
         this.setState({teamNameInput: newTeamName});
         this.props.editTeamCard(oldTeamName, newTeamName);
     }
-    setColorHex(cardColor) {
-        var hexColor;
-        switch (cardColor) {
-            case "purple":
-                hexColor = "#976E98";
-                break;
-            case "green":
-                hexColor = "#53c68c";
-                break;
-            case "blue":
-                hexColor = "#2980B9";
-                break;
-            case "red":
-                hexColor = "#f08675";
-                break;
-            case "yellow":
-                hexColor= "#F0DC89";
-                break;
-        }
-        return hexColor;
-    }
+
     render() {
         var cardStyle = {
-            backgroundColor: this.setColorHex(this.props.cardColor)
+            backgroundColor: this.props.cardColor
         };
         return (
                 <div style={cardStyle}

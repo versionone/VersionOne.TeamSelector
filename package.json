@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/versionone/VersionOne.TeamSelector#readme",
   "dependencies": {
+    "chroma-js": "^2.0.3",
     "luxon": "^1.11.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
