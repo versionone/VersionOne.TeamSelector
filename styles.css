@@ -48,7 +48,7 @@ input[type=text] {
     background: linear-gradient(180deg,#000,#000 20%,#fff 0,#fff 40%,#000 0,#000 60%,#fff 0,#fff 80%,#000 0,#000);
 }
 
-.card-point {
+.team-card:not(:last-child) .card-point {
     position: absolute;
     display: inline-block;
     right: 227px;
