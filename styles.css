@@ -17,9 +17,10 @@ body {
     margin: auto;
 }
 
-.teamCardList {
-    width: 500px;
-    margin: auto;
+.team-card-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 input[type=text] {

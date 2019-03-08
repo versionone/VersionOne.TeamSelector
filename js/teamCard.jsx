@@ -33,7 +33,7 @@ class TeamCard extends React.Component {
             backgroundColor: this.props.cardColor
         };
         return (
-                <div style={cardStyle}
+                <li style={cardStyle}
                      className="team-card"
                     >
                     <DragHandle/>
@@ -44,7 +44,7 @@ class TeamCard extends React.Component {
                         <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard} />
                     </form>
                     <span style={cardStyle} className="card-point" />
-                </div>
+                </li>
         );
     }
 }

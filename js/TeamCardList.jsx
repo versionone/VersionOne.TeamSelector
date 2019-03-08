@@ -37,9 +37,9 @@ class TeamCardList extends React.Component {
             );
         }
         return (
-                <div className="teamCardList">
+                <ol className="team-card-list">
                     {teamDataRender}
-                </div>
+                </ol>
         );
     }
 }
