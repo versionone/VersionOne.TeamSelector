@@ -51,9 +51,9 @@ input[type=text] {
     background: linear-gradient(180deg,#000,#000 20%,#888 0,#888 40%,#000 0,#000 60%,#888 0,#888 80%,#000 0,#000);
 }
 
-.team-card:not(:last-child) .card-point {
+.team-card .card-point {
     position: absolute;
-    display: inline-block;
+    display: none;
     right: 227px;
     bottom: -10px;
     width: 20px;
@@ -61,6 +61,10 @@ input[type=text] {
     background-color: red;
     z-index: 1;
     transform: rotate(45deg);
+}
+
+.team-card:not(:last-child) .card-point {
+    display: inline-block;
 }
 
 .button-wrapper {
@@ -89,10 +93,6 @@ input[type=text] {
 }
 
 .team-card .close-btn {
-    display: none;
-}
-
-.team-card:hover .close-btn {
     background-image: url('./icons/close-icon.png');
     background-size: 20px 20px;
     background-repeat: no-repeat;
@@ -105,15 +105,15 @@ input[type=text] {
     top: 3px;
     line-height: normal;
     border: none;
-    display: block;
     cursor: pointer;
-}
-
-.team-card .lock-btn {
     display: none;
 }
 
-.team-card:hover .lock-btn {
+.team-card:hover .close-btn {
+    display: block;
+}
+
+.team-card .lock-btn {
     width: 20px;
     height: 20px;
     margin: 0;
@@ -121,8 +121,12 @@ input[type=text] {
     right: 3px;
     top: 23px;
     line-height: normal;
-    display: block;
     cursor: pointer;
+    display: none;
+}
+
+.team-card:hover .lock-btn {
+    display: block;
 }
 
 .link-land {
@@ -151,10 +155,6 @@ input[type=text] {
 }
 
 .team-card .notepadIcon.noNotes {
-    display: none;
-}
-
-.team-card:hover .notepadIcon.noNotes, .notepadIcon.hasNotes {
     width: 20px;
     height: 20px;
     margin: 0;
@@ -162,8 +162,12 @@ input[type=text] {
     right: 3px;
     top: 48px;
     line-height: normal;
-    display: block;
     cursor: pointer;
+    display: none;
+}
+
+.team-card:hover .notepadIcon.noNotes, .notepadIcon.hasNotes {
+    display: block;
 }
 
 .NotepadIcon.hasNotes g {
