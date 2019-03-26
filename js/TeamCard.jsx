@@ -40,9 +40,7 @@ class TeamCard extends React.Component {
                     <CloseButton closeTeamCard={this.props.closeTeamCard} closeTeamName={this.state.teamNameInput}/>
                     <LockButton lockTeamCard={this.props.toggleTeamCardLock} lockTeamName={this.state.teamNameInput} isLocked={this.props.isLocked} />
                     <Notes notes={this.props.notes} updateTeamCardNotes={this.props.updateTeamCardNotes} teamName={this.state.teamNameInput}/>
-                    <form>
-                        <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard} />
-                    </form>
+                    <input type="text" value={this.state.teamNameInput} onChange={this.handleEditTeamCard} />
                     <span style={cardStyle} className="card-point" />
                 </li>
         );
