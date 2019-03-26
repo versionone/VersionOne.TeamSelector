@@ -54,7 +54,7 @@ input[type=text] {
 .team-card .card-point {
     position: absolute;
     display: none;
-    right: 227px;
+    right: 240px;
     bottom: -10px;
     width: 20px;
     height: 20px;
