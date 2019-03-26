@@ -3,7 +3,7 @@ import _ from 'underscore';
 import TeamCard from './TeamCard.jsx';
 import { SortableContainer } from 'react-sortable-hoc';
 
-const SortableList = SortableContainer((props) => <TeamCardList {...props}/>);
+const SortableList = SortableContainer((props) => <TeamCardList {...props} useDragHandle/>);
 
 class TeamCardList extends React.Component {
     constructor(props) {
