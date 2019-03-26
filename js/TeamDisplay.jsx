@@ -129,6 +129,8 @@ class TeamDisplay extends React.Component {
 
         setTeamData(shuffledTeamData);
         this.setState({teamData: shuffledTeamData});
+
+        theme.seed();
     }
 
     swapTeams ({oldIndex, newIndex}) {
