@@ -34,8 +34,11 @@ class Fade extends Theme {
         super();
 
         this.palette = [
-            '#e38b2d' /* CN orange */,
-            '#802145' /* V1 purp */,
+            //'#e38b2d' /* CN orange */,
+            //'#802145' /* V1 purp */,
+            // ossum dark theme palette
+            '#263238',
+            '#78909C',
         ];
     }
 
