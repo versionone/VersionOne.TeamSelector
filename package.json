@@ -26,22 +26,23 @@
   },
   "homepage": "https://github.com/versionone/VersionOne.TeamSelector#readme",
   "dependencies": {
-    "chroma-js": "^2.0.3",
-    "luxon": "^1.11.4",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-sortable-hoc": "^1.7.1"
+    "chroma-js": "^2.0.4",
+    "luxon": "^1.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-sortable-hoc": "^1.9.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
+    "babel-loader": "^8.0.6",
+    "caniuse-lite": "^1.0.30000984",
     "underscore": "^1.8.3",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
-    "webpack-dev-middleware": "^3.6.1",
-    "webpack-dev-server": "^3.2.1",
-    "webpack-hot-middleware": "^2.24.3"
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0"
   }
 }
