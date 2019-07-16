@@ -25,12 +25,10 @@ class TeamDisplay extends React.Component {
         super();
         let teamData = localStorage.getItem("teamData");
 
-        if(!teamData) {
-            setTeamData(DEFAULT_TEAM_DATA);
-            teamData = DEFAULT_TEAM_DATA;
-        } else {
+        if (teamData)
             teamData = JSON.parse(teamData);
-        }
+        else
+            teamData = DEFAULT_TEAM_DATA;
 
         this.state = { teamData };
         this.addTeamCard = this.addTeamCard.bind(this);
