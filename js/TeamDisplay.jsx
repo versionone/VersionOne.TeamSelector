@@ -12,10 +12,10 @@ import { Fade as Theme } from './themes';
 const theme = new Theme();
 
 const DEFAULT_TEAM_DATA = [
-    {"teamName":"Teams show here", "rank": 1, "locked":false},
-    {"teamName":"Add different teams", "rank": 2, "locked":false},
-    {"teamName":"Then shuffle them", "rank":3, "locked":false},
-    {"teamName":"Before daily stand-up", "rank":4, "locked":false}
+    {"teamName":"Teams show here", "locked":false},
+    {"teamName":"Add different teams", "locked":false},
+    {"teamName":"Then shuffle them", "locked":false},
+    {"teamName":"Before daily stand-up", "locked":false}
 ];
 
 const setTeamData = (teamData) => localStorage.setItem("teamData", JSON.stringify(teamData));
@@ -43,9 +43,8 @@ class TeamDisplay extends React.Component {
         const {
             teamData,
         } = this.state;
-        var nextRank = teamData.length + 1;
-        var newName = "New Team " + nextRank;
-        teamData.push({"teamName":newName, "rank":nextRank, "locked":false});
+        var newName = "New Team " + (teamData.length + 1);
+        teamData.push({"teamName":newName, "locked":false});
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
