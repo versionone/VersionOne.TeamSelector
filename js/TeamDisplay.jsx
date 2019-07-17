@@ -49,41 +49,29 @@ class TeamDisplay extends React.Component {
         this.setState({teamData: teamData});
     }
     editTeamCard(oldTeamName, newTeamName) {
-        const {
-            teamData
-        } = this.state;
-        var teamIndex = _.indexOf(teamData,
-            _.findWhere(teamData,
-                {teamName: oldTeamName}
-            )
-        );
-        teamData[teamIndex].teamName = newTeamName;
+        const { teamData } = this.state;
+        const team = _.findWhere(teamData, { teamName: oldTeamName });
+
+        team.teamName = newTeamName;
+
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
     toggleTeamCardLock(teamName) {
-        const {
-            teamData
-        } = this.state;
-        var teamIndex = _.indexOf(teamData,
-            _.findWhere(teamData,
-                {teamName: teamName}
-            )
-        );
-        teamData[teamIndex].locked = !teamData[teamIndex].locked;
+        const { teamData } = this.state;
+        const team = _.findWhere(teamData, { teamName: teamName });
+
+        team.locked = !team.locked;
+
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
     updateTeamCardNotes(teamName, notes) {
-        const {
-            teamData
-        } = this.state;
-        const teamIndex = _.indexOf(teamData,
-            _.findWhere(teamData,
-                {teamName: teamName}
-            )
-        );
-        teamData[teamIndex].notes = notes;
+        const { teamData } = this.state;
+        const team = _.findWhere(teamData, { teamName: teamName });
+
+        team.notes = notes;
+
         setTeamData(teamData);
         this.setState({teamData: teamData});
     }
