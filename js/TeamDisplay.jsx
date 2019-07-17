@@ -18,8 +18,6 @@ const DEFAULT_TEAM_DATA = [
     {"teamName":"Before daily stand-up", "locked":false}
 ];
 
-const setTeamData = (teamData) => localStorage.setItem("teamData", JSON.stringify(teamData));
-
 class TeamDisplay extends React.Component {
     constructor() {
         super();
@@ -38,15 +36,14 @@ class TeamDisplay extends React.Component {
         this.toggleTeamCardLock = this.toggleTeamCardLock.bind(this);
         this.updateTeamCardNotes = this.updateTeamCardNotes.bind(this);
         this.swapTeams = this.swapTeams.bind(this);
+        this.saveTeams = this.saveTeams.bind(this);
     }
     addTeamCard() {
-        const {
-            teamData,
-        } = this.state;
+        const { teamData } = this.state;
         var newName = "New Team " + (teamData.length + 1);
         teamData.push({"teamName":newName, "locked":false});
-        setTeamData(teamData);
-        this.setState({teamData: teamData});
+
+        this.saveTeams(teamData);
     }
     editTeamCard(oldTeamName, newTeamName) {
         const { teamData } = this.state;
@@ -54,8 +51,7 @@ class TeamDisplay extends React.Component {
 
         team.teamName = newTeamName;
 
-        setTeamData(teamData);
-        this.setState({teamData: teamData});
+        this.saveTeams(teamData);
     }
     toggleTeamCardLock(teamName) {
         const { teamData } = this.state;
@@ -63,8 +59,7 @@ class TeamDisplay extends React.Component {
 
         team.locked = !team.locked;
 
-        setTeamData(teamData);
-        this.setState({teamData: teamData});
+        this.saveTeams(teamData);
     }
     updateTeamCardNotes(teamName, notes) {
         const { teamData } = this.state;
@@ -72,8 +67,7 @@ class TeamDisplay extends React.Component {
 
         team.notes = notes;
 
-        setTeamData(teamData);
-        this.setState({teamData: teamData});
+        this.saveTeams(teamData);
     }
     closeTeamCard(closeTeamName) {
         const {
@@ -85,9 +79,15 @@ class TeamDisplay extends React.Component {
                 {teamName: closeTeamName}
             )
         );
-        setTeamData(newTeamData);
-        this.setState({teamData: newTeamData});
+
+        this.saveTeams(newTeamData);
     }
+
+    saveTeams(teams, callback) {
+        localStorage.setItem("teamData", JSON.stringify(teams));
+        this.setState({ teamData: teams }, callback);
+    }
+
     shuffleTeamCards() {
         function shuffleTeams(teams) {
             var swapRange = teams.length, swap, randomPosition;
@@ -112,18 +112,12 @@ class TeamDisplay extends React.Component {
             return newList;
         }, []);
 
-        setTeamData(shuffledTeamData);
-        this.setState({teamData: shuffledTeamData});
-
-        theme.seed();
+        this.saveTeams(shuffledTeamData, () => theme.seed());
     }
 
     swapTeams ({oldIndex, newIndex}) {
         var newPosition = arrayMove(this.state.teamData, oldIndex, newIndex);
-        this.setState({
-            teamData: newPosition
-        });
-        setTeamData(newPosition)
+        this.saveTeams(newPosition);
     };
 
     render() {
