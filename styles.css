@@ -159,7 +159,7 @@ input[type=text] {
     text-align: center;
 }
 
-.team-card .notepadIcon.noNotes {
+.team-card .notepadIcon {
     width: 20px;
     height: 20px;
     margin: 0;
