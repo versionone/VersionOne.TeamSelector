@@ -89,30 +89,15 @@ class TeamDisplay extends React.Component {
     }
 
     shuffleTeamCards() {
-        function shuffleTeams(teams) {
-            var swapRange = teams.length, swap, randomPosition;
-            while (swapRange) {
-                randomPosition = Math.floor(Math.random() * swapRange--);
-                swap = teams[swapRange];
-                teams[swapRange] = teams[randomPosition];
-                teams[randomPosition] = swap;
-            }
-        }
+        const { teamData } = this.state;
 
-        const {
-            teamData,
-        } = this.state;
+        const shuffledTeams = _.shuffle(teamData.filter(team => !team.locked));
 
-        const teamsToShuffle = teamData.filter(team => !team.locked);
+        const mergedTeams = teamData.reduce(
+            (newList, team) => newList.concat(team.locked ? team : shuffledTeams.pop())
+            , []);
 
-        shuffleTeams(teamsToShuffle);
-
-        const shuffledTeamData = teamData.reduce((newList, team) => {
-            newList.push(team.locked ? team : teamsToShuffle.pop())
-            return newList;
-        }, []);
-
-        this.saveTeams(shuffledTeamData, () => theme.seed());
+        this.saveTeams(mergedTeams, () => theme.seed());
     }
 
     swapTeams ({oldIndex, newIndex}) {
