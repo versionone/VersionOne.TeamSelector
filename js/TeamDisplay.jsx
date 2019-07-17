@@ -38,6 +38,7 @@ class TeamDisplay extends React.Component {
         this.swapTeams = this.swapTeams.bind(this);
         this.saveTeams = this.saveTeams.bind(this);
     }
+
     addTeamCard() {
         const { teamData } = this.state;
         var newName = "New Team " + (teamData.length + 1);
@@ -45,6 +46,7 @@ class TeamDisplay extends React.Component {
 
         this.saveTeams(teamData);
     }
+
     editTeamCard(oldTeamName, newTeamName) {
         const { teamData } = this.state;
         const team = _.findWhere(teamData, { teamName: oldTeamName });
@@ -69,16 +71,14 @@ class TeamDisplay extends React.Component {
 
         this.saveTeams(teamData);
     }
+
     closeTeamCard(closeTeamName) {
         const {
             teamData
         } = this.state;
 
         const newTeamData = _.without(teamData,
-            _.findWhere(teamData,
-                {teamName: closeTeamName}
-            )
-        );
+            _.findWhere(teamData, { teamName: closeTeamName }));
 
         this.saveTeams(newTeamData);
     }

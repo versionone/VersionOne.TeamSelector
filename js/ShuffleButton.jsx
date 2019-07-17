@@ -4,6 +4,7 @@ class ShuffleButton extends React.Component {
     constructor() {
         super();
     }
+
     render() {
         return (
             <button className="shuffle-btn big-button" onClick={this.props.shuffleTeamCards}>

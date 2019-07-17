@@ -10,20 +10,25 @@ const SortableItem = SortableElement((props) => <TeamCard {...props}/>);
 class TeamCard extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             teamNameInput: props.teamName,
             index: props.index
         };
+
         this.handleEditTeamCard = this.handleEditTeamCard.bind(this);
     }
+
     componentWillReceiveProps(nextProps) {
         this.setState({
             teamNameInput: nextProps.teamName,
         });
     }
+
     handleEditTeamCard(event) {
         var oldTeamName = this.state.teamNameInput;
         var newTeamName = event.target.value;
+
         this.setState({teamNameInput: newTeamName});
         this.props.editTeamCard(oldTeamName, newTeamName);
     }
@@ -32,6 +37,7 @@ class TeamCard extends React.Component {
         var cardStyle = {
             backgroundColor: this.props.cardColor
         };
+
         return (
                 <li style={cardStyle}
                      className="team-card"

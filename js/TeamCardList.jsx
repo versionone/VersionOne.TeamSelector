@@ -9,6 +9,7 @@ class TeamCardList extends React.Component {
     constructor(props) {
         super(props);
     }
+
     render() {
         const {
             teamData,
@@ -18,7 +19,9 @@ class TeamCardList extends React.Component {
             updateTeamCardNotes,
             theme,
         } = this.props;
+
         var teamDataRender = [];
+
         for (var i = 0; i < teamData.length; i++) {
             teamDataRender.push(
                 <TeamCard
@@ -36,6 +39,7 @@ class TeamCardList extends React.Component {
                 </TeamCard>
             );
         }
+
         return (
                 <ol className="team-card-list">
                     {teamDataRender}

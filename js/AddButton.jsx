@@ -5,6 +5,7 @@ class AddButton extends React.Component {
     constructor() {
         super();
     }
+
     render() {
         return (
             <button className="add-btn big-button" onClick={this.props.addTeamCard}>
