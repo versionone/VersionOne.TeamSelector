@@ -7,7 +7,7 @@ import AddButton from './AddButton.jsx';
 import JokeOfTheDay from "./JokeOfTheDay/JokeOfTheDay";
 import { arrayMove } from 'react-sortable-hoc';
 import LinkLand from "./LinkLand/LinkLand";
-import { Fade as Theme } from './themes';
+import { CNV1Fade as Theme } from './themes';
 
 const theme = new Theme();
 

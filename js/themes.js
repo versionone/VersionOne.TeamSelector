@@ -29,7 +29,7 @@ class Classic extends Theme {
     }
 }
 
-class Fade extends Theme {
+class CNV1Fade extends Theme {
     constructor() {
         super();
 
@@ -51,4 +51,4 @@ class Fade extends Theme {
     }
 }
 
-export { Classic, Fade };
+export { Classic, CNV1Fade };
